@@ -197,6 +197,7 @@ body.st #toast{background:rgba(30,30,32,.9)}
 .hm-ft{position:absolute;bottom:16px;left:0;right:0;font-size:12px;color:var(--gold-l);opacity:.55}
 body.st .bk{display:block;margin:0 0 14px;padding:4px 12px;font-size:13px;color:var(--red);border-color:transparent;background:transparent;box-shadow:none}
 body.st .bk:hover:not(:disabled){background:color-mix(in srgb,var(--red) 10%,transparent)}
+.hm-g{position:absolute;top:16px;right:18px;display:flex;flex-direction:column;align-items:flex-end;gap:1px;font-size:13px;padding:7px 16px;background:rgba(255,255,255,.1);color:var(--gold-l);border:1px solid color-mix(in srgb,var(--gold) 70%,transparent);opacity:.9}.hm-g:hover{opacity:1;background:rgba(255,255,255,.2)}.hm-g small{font-size:11px;opacity:.75}
 </style></head><body><div id="app"></div><div id="run"></div><div id="modal"></div><div id="toast"></div><canvas id="fx"></canvas><script>
 const $=s=>document.querySelector(s),sl=ms=>new Promise(r=>setTimeout(r,ms)),CN='一二三四五六七八九十',LS='wy-lot1',DK='wy-lot-design';
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -209,7 +210,7 @@ const I=(k,v,t='text',x='')=>`<input data-k="${k}" type="${t}" value="${esc(v)}"
 const SE=(k,a,v,x='')=>`<select data-k="${k}" ${x}>${op(a,v)}</select>`;
 const CK=(k,v,x='')=>`<input type="checkbox" data-k="${k}" ${v?'checked':''} ${x}>`;
 let TS=0;const fts=t=>{if(!t)return'尚無紀錄';const d=new Date(t),z=n=>String(n).padStart(2,'0');return `${d.getFullYear()}/${z(d.getMonth()+1)}/${z(d.getDate())} ${z(d.getHours())}:${z(d.getMinutes())}:${z(d.getSeconds())}`};
-function save(){if(PV)return;try{TS=Date.now();localStorage.setItem(LS,JSON.stringify({C,ST,S,ts:TS}))}catch(e){}}
+function save(){if(PV)return;try{TS=Date.now();localStorage.setItem(LS,JSON.stringify({C,ST,S,ts:TS}))}catch(e){}gq()}
 const mig=()=>ST.forEach(s=>(s&&s.prizes||[]).forEach(p=>{if(p&&p.name==='幸運獎')p.name='';if(p&&p.gift==='神秘好禮')p.gift=''}));
 function load(){try{const d=JSON.parse(localStorage.getItem(LS));if(d){TS=d.ts||0;C={...DC,...d.C};ST=d.ST||ST;mig();return d.S}}catch(e){}return null}
 /* 個別設計 */
@@ -334,7 +335,7 @@ ${ST.length<10?'<div style="text-align:right"><button class="lk" onclick="act(\'
 ${T&&ST.length>=2&&ST[0].mode==='table'&&ST[1].mode==='gen'?`<label class="ck">${CK('C.auto',C.auto&&!C.rep,C.rep?'data-r=1 disabled title="已開啟「允許重複得獎」，此選項無法使用"':'data-r=1')} 已抽出座位號後續不再得獎</label>`:''}</div>
 ${w.map(x=>`<div class="wr">⚠ ${x}</div>`).join('')}
 <div class="rw"><button class="sm lg" onclick="im1()">匯入設定</button><button class="sm lg" onclick="ex1()">匯出設定</button><button class="sm lg" onclick="clr()" ${S&&S.res.length?'disabled title="已開始抽獎，無法清除設定"':''}>清除所有設定</button><button class="sm lg" onclick="dsT()">樣式設定</button><button class="sm lg" onclick="prev()" title="彩排模式：僅預覽執行畫面，結束後不記錄中獎名單">彩排預覽</button></div>
-<div class="rw">${S?'<button class="b p" onclick="rst()">套用修改並重新開始</button>':''}<button class="b p" onclick="st0()">${S?'不修改繼續抽獎':'開始執行抽獎'}</button></div><div class="lts">瀏覽器最後儲存設定時間：${fts(TS)}</div></div>`;if(LK)document.querySelectorAll('#app .lk input,#app .lk select,#app .lk textarea,#app .lk button:not(.nv),#app button.lk').forEach(e=>e.disabled=true)}
+<div class="rw">${S?'<button class="b p" onclick="rst()">套用修改並重新開始</button>':''}<button class="b p" onclick="st0()">${S?'不修改繼續抽獎':'開始執行抽獎'}</button></div><div class="lts" id="lts">${ltsT()}</div></div>`;if(LK)document.querySelectorAll('#app .lk input,#app .lk select,#app .lk textarea,#app .lk button:not(.nv),#app button.lk').forEach(e=>e.disabled=true)}
 function act(a,i,j){const y=window.scrollY;
 if(a==='padd'){const P=ST[i]&&ST[i].prizes;if(!P||P.length>=50)return;P.splice(j+1,0,{no:'',name:'',gift:'',per:1});ST[i].count=P.length}
 else if(a==='pdel'){const P=ST[i]&&ST[i].prizes;if(!P||P.length<=1)return;P.splice(j,1);ST[i].count=P.length}
@@ -351,7 +352,7 @@ function homeView(){const dn=S?S.res.filter(r=>r.st==='得獎').length:0,ev=S&&S
 $('#app').innerHTML=`<div class="home"><div class="hm-in"><div class="hm-eye">${tx('eye')}</div><h1 class="hm-t">${tx('title')}</h1><div class="hm-ln"></div>
 <div class="hm-main">${S?`<button class="hm-b pri" onclick="st0()">繼續上次抽獎</button><div class="hm-info">已有 ${dn} 位得獎者　·　最後更新 ${fts(TS)}</div><button class="hm-b" onclick="V='set';render()">查看／修改設定</button>`:`<button class="hm-b pri" onclick="V='set';render()">開始新活動</button>`}</div>
 <div class="hm-sec"><button onclick="im1()">匯入設定</button><button onclick="dsT()">樣式設定</button><button onclick="prev()" title="彩排模式：僅預覽執行畫面，結束後不記錄中獎名單">彩排預覽</button></div></div>
-<div class="hm-ft">瀏覽器最後儲存設定時間：${fts(TS)}</div></div>`}
+<div class="hm-ft" id="hmf">${ltsT()}</div><button class="hm-g" onclick="gClick()">${gChip()}${G.on&&G.email?`<small>${esc(G.email)}</small>`:''}</button></div>`}
 function render(){if(V==='run'&&!S)V='set';const b=document.body.classList;b.toggle('rn',V==='run');b.toggle('st',V==='set');b.toggle('hm',V==='home');if(V==='run'){const d=$('#ds');d&&d.classList.remove('open')}V==='run'?runView():V==='home'?homeView():setView()}
 /* 抽獎畫面 */
 const cur=()=>S.plan[S.cur];
@@ -468,5 +469,42 @@ document.addEventListener('input',e=>{const t=e.target,k=t.dataset.k;if(!k)retur
 document.addEventListener('change',e=>{if(e.target.dataset.r)setView();if(e.target.dataset.k==='C.mode'&&C.mode==='csv')RM('選擇「匯入csv檔」名單模式後：<br>① 抽獎模式僅能使用「一般抽法」，桌獎抽法無法使用。<br>② CSV 第一列標題須包含「單位」「大名」。<br>③ 單位至多6個中文字、大名至多4個中文字，生僻字可能無法顯示。<br>④ 此模式沒有排除選項，請自行在原始名單做更改。');if(e.target.id==='jp'){S.cur=+e.target.value;MSG=null;save();runView()}});
 document.addEventListener('keydown',e=>{if(e.code==='Space'&&V==='run'&&S&&!$('#modal').firstChild&&!/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)){e.preventDefault();if(e.repeat)return;document.activeElement.blur();const d=$('#dr');if(d&&!d.disabled)go()}});
 addEventListener('beforeunload',e=>{if(S&&S.res.length&&S.cur>=0){e.preventDefault();e.returnValue=''}});
+/* Google 帳號同步（資料存在使用者自己 Google 雲端硬碟的 app 專用隱藏資料夾） */
+const GCID='89256597986-et9m3dq1t4urjomlv5ltoeiepa93utaj.apps.googleusercontent.com';/* ← 部署前填入 Google OAuth 用戶端 ID，例如 123456789-xxxx.apps.googleusercontent.com */
+const GSC='https://www.googleapis.com/auth/drive.appdata openid email',GFN='wy-lottery.json';
+let G={tok:'',exp:0,email:'',on:false,last:0,st:'',fid:'',t:null};
+try{const g=JSON.parse(localStorage.getItem('wy-g'));if(g&&g.on){G.on=true;G.email=g.email||'';G.last=g.last||0}}catch(e){}
+const gSv=()=>{try{localStorage.setItem('wy-g',JSON.stringify({on:G.on,email:G.email,last:G.last}))}catch(e){}};
+const gOk=()=>!!G.tok&&Date.now()<G.exp-60000;
+const ltsT=()=>`瀏覽器最後儲存設定時間：${fts(TS)}`+(G.on?`　｜　雲端：${G.st==='sync'?'同步中…':G.st==='err'?'同步失敗':G.st==='need'||!gOk()?'尚未連線':'已同步 '+fts(G.last)}`:'');
+function gUI(){if(V==='home')homeView();else{const e=$('#lts');if(e)e.textContent=ltsT()}}
+const gChip=()=>!G.on?'Google 登入':G.st==='sync'?'同步中…':G.st==='err'?'⚠ 同步失敗，點此重試':G.st==='need'?'⚠ 同步中斷，點此重新連線':!gOk()?'重新連線 Google':'● 雲端已同步';
+const gLoad=()=>new Promise((res,rej)=>{if(window.google&&google.accounts&&google.accounts.oauth2)return res();const s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.async=true;s.onload=()=>res();s.onerror=()=>rej(new Error('load'));document.head.appendChild(s)});
+async function gAuth(){if(!GCID){toast('尚未設定 Google 用戶端 ID（請見說明）');return false}
+try{await gLoad()}catch(e){toast('無法連線到 Google，請檢查網路');return false}
+return new Promise(res=>{const tc=google.accounts.oauth2.initTokenClient({client_id:GCID,scope:GSC,callback:async r=>{if(!r||r.error||!r.access_token){toast('Google 登入未完成');return res(false)}G.tok=r.access_token;G.exp=Date.now()+(r.expires_in||3600)*1000;
+try{const u=await(await fetch('https://www.googleapis.com/oauth2/v3/userinfo',{headers:{Authorization:'Bearer '+G.tok}})).json();if(u.email)G.email=u.email}catch(e){}G.on=true;G.st='';gSv();res(true)},error_callback:()=>{toast('Google 登入已取消');res(false)}});tc.requestAccessToken({prompt:G.on?'':'select_account'})})}
+const gf=async(u,o={})=>{const r=await fetch(u,{...o,headers:{...(o.headers||{}),Authorization:'Bearer '+G.tok}});if(r.status===401||r.status===403){G.tok='';G.exp=0;throw new Error('auth')}if(!r.ok)throw new Error('http'+r.status);return r};
+async function gFind(){const j=await(await gf('https://www.googleapis.com/drive/v3/files?spaces=appDataFolder&q='+encodeURIComponent("name='"+GFN+"'")+'&fields=files(id,modifiedTime)')).json();return j.files&&j.files[0]||null}
+const gGet=async id=>(await gf('https://www.googleapis.com/drive/v3/files/'+id+'?alt=media')).json();
+async function gPut(id){const b=JSON.stringify({v:1,ts:TS,C,ST,S,D});if(id){await gf('https://www.googleapis.com/upload/drive/v3/files/'+id+'?uploadType=media',{method:'PATCH',headers:{'Content-Type':'application/json'},body:b});return id}
+const bd='wyb'+Date.now(),m=`--${bd}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify({name:GFN,parents:['appDataFolder']})}\r\n--${bd}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${b}\r\n--${bd}--`;
+return(await(await gf('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+bd},body:m})).json()).id}
+function gq(){if(!G.on||PV)return;clearTimeout(G.t);if(!gOk()){if(G.st!=='need'){G.st='need';gUI()}return}G.t=setTimeout(gPush,2000)}
+async function gPush(){if(!gOk()||PV)return;try{G.st='sync';gUI();G.fid=await gPut(G.fid||((await gFind())||{}).id);G.last=Date.now();G.st='ok';gSv()}catch(e){G.st=e.message==='auth'?'need':'err'}gUI()}
+function gApply(d){C={...DC,...d.C};ST=d.ST||ST;mig();S=d.S||null;if(S&&!S.res.length)S=null;TS=d.ts||Date.now();
+if(d.D)D={t:d.D.t||{},c:d.D.c||{},g:{lan:1,sheep:1,...(d.D.g||{})},th:d.D.th||(Object.keys(d.D.c||{}).length?'custom':'red')};
+try{localStorage.setItem(LS,JSON.stringify({C,ST,S,ts:TS}));localStorage.setItem(DK,JSON.stringify(D))}catch(e){}
+fix();dApply();const o=$('#ds');if(o){o.remove();dBuild()}UL=false;render()}
+async function gSync(){try{G.st='sync';gUI();const f=await gFind();G.fid=f?f.id:'';
+if(!f){if(!TS)save();clearTimeout(G.t);await gPush();toast('已建立雲端備份');return}
+const d=await gGet(f.id),rt=d.ts||0;
+if(!TS){gApply(d);G.last=Date.now();G.st='ok';gSv();gUI();toast('已載入雲端資料');return}
+if(rt>TS){const u=await ask(`雲端有較新的資料（${fts(rt)}），本機為 ${fts(TS)}。<br>要使用哪一份？`,'使用雲端版本','保留本機版本');if(u){gApply(d);G.last=Date.now();G.st='ok';gSv();gUI();toast('已載入雲端資料');return}}
+if(rt!==TS||!G.last){clearTimeout(G.t);await gPush()}else{G.last=Date.now();G.st='ok';gSv();gUI()}}catch(e){G.st=e.message==='auth'?'need':'err';gUI();toast(e.message==='auth'?'Google 授權已失效，請重新連線':'雲端同步失敗，請稍後再試')}}
+async function gLogin(){if(await gAuth())await gSync()}
+function gClick(){if(!G.on||!gOk()||G.st==='need')return gLogin();if(G.st==='err')return gSync();
+M(`<div class="pop s" style="text-align:center"><h2>Google 雲端同步</h2><p style="line-height:1.8">已連結：<b>${esc(G.email||'（未知帳號）')}</b><br>雲端最後同步：${G.last?fts(G.last):'尚未同步'}<br><small>資料存放在你自己 Google 雲端硬碟的 app 專用資料夾，只有這個程式讀得到。</small></p><div class="rw"><button class="b p" onclick="M();gSync()">立即同步</button><button class="b p alt" onclick="gOut()">登出</button><button class="b p alt" onclick="M()">關閉</button></div></div>`)}
+function gOut(){try{if(window.google&&G.tok)google.accounts.oauth2.revoke(G.tok,()=>{})}catch(e){}G.on=false;G.tok='';G.exp=0;G.st='';G.fid='';gSv();M();gUI();toast('已登出 Google（雲端資料仍保留）')}
 (async()=>{S=load();if(S&&!S.res.length)S=null;dApply();dBuild();render()})();
 </script></body></html>
