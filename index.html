@@ -227,6 +227,23 @@ body.hm .home{z-index:1}
 .hm-b.pri:hover:not(:active){transform:translateY(-3px);filter:brightness(1.05);box-shadow:0 9px 0 color-mix(in srgb,var(--btn) 55%,#000),0 22px 38px -8px rgba(0,0,0,.65)}
 .hm-b.pri:hover::after{animation-duration:1.1s}
 @media(prefers-reduced-motion:reduce){.hm-b.pri::after{animation:none;display:none}}
+.hm-help{position:absolute;top:16px;left:16px;font-size:14px;padding:8px 18px;background:rgba(255,255,255,.08);color:var(--gold-l);border:1px solid color-mix(in srgb,var(--gold) 70%,transparent);border-radius:999px}.hm-help:hover{background:rgba(255,255,255,.2)}
+.helpw{max-width:520px;text-align:center}.hst{animation:hsin .5s ease both}.hst h3{margin:12px 0 4px;font-size:20px}.hst p{margin:0 0 10px;font-size:14px;line-height:1.7;color:var(--mut);min-height:72px}
+@keyframes hsin{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+.hsc{height:150px;border-radius:14px;background:linear-gradient(180deg,var(--bg),var(--bg2));display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;color:var(--gold-l)}
+.hdots{display:flex;gap:8px;justify-content:center;margin:4px 0 12px}.hdots i{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer}.hdots i.on{background:var(--red);width:22px;border-radius:4px}
+.hc,.hr{background:rgba(255,255,255,.16);border:1px solid color-mix(in srgb,var(--gold) 60%,transparent);border-radius:10px;padding:8px 18px;font-size:14px;font-weight:700;margin:4px}
+.hbtn{background:linear-gradient(180deg,var(--gold-l),var(--gold));color:var(--red-d);font-weight:700;border-radius:999px;padding:10px 26px;font-size:15px;animation:hpulse 1.4s ease-in-out infinite}.hsm{font-size:12px;border:1px solid var(--gold);border-radius:999px;padding:5px 14px;margin-left:10px;animation:hblink 1.4s infinite}
+@keyframes hpulse{50%{transform:scale(1.08);box-shadow:0 0 22px rgba(255,220,120,.8)}}@keyframes hblink{50%{opacity:.35}}
+.hs1{display:flex;flex-direction:column;align-items:center}.hs1 .b2{animation:hpop 3s infinite}@keyframes hpop{0%,40%{opacity:0;transform:scale(.6)}60%,100%{opacity:1;transform:none}}
+.hs2 .hr{animation:hslide .7s ease both}.hs2 .hr:nth-child(2){animation-delay:.3s}.hs2 .hr:nth-child(3){animation-delay:.6s}.hs5 .hr{animation:hslide .7s ease both;font-size:13px}.hs5 .hr:nth-child(2){animation-delay:.25s}.hs5 .hr:nth-child(3){animation-delay:.5s}
+@keyframes hslide{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+.hs3{display:flex;align-items:center}
+.hs4{display:flex;gap:12px}.rl{width:44px;height:64px;overflow:hidden;border-radius:8px;background:rgba(255,255,255,.18);border:1px solid var(--gold);font-size:40px;font-weight:900;line-height:64px}.rl i{display:block;font-style:normal;height:64px;animation:hroll 2.4s cubic-bezier(.2,.8,.3,1.1) infinite}.rl.d2 i{animation-delay:.2s}.rl.d3 i{animation-delay:.4s}
+.rl{display:flex;flex-direction:column}.rl i{flex:none}@keyframes hroll{0%{transform:translateY(0)}70%,100%{transform:translateY(-256px)}}
+.hs5{display:flex;flex-direction:column;align-items:center}.hx{display:flex;gap:8px;margin-top:6px}.hx span{font-size:12px;font-weight:700;background:var(--gold);color:var(--red-d);padding:3px 12px;border-radius:999px;animation:hpulse 1.8s infinite}.hx span:nth-child(2){animation-delay:.3s}.hx span:nth-child(3){animation-delay:.6s}
+.hs6{display:flex;flex-direction:column;align-items:center;gap:0}.hs6 .cl{font-size:54px;line-height:1}.hs6 .ar{font-size:30px;animation:hup 1.6s ease-in-out infinite}.hs6 .pc{font-size:34px;line-height:1}@keyframes hup{0%{opacity:0;transform:translateY(10px)}50%{opacity:1}100%{opacity:0;transform:translateY(-10px)}}
+@media(prefers-reduced-motion:reduce){.hsc *,.hst{animation:none!important}}
 </style></head><body><div id="app"></div><div id="run"></div><div id="modal"></div><div id="toast"></div><canvas id="fx"></canvas><script>
 const $=s=>document.querySelector(s),sl=ms=>new Promise(r=>setTimeout(r,ms)),CN='一二三四五六七八九十',LS='wy-lot1',DK='wy-lot-design';
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -246,7 +263,7 @@ const evRead=id=>{try{return JSON.parse(localStorage.getItem(EK(id)))}catch(e){r
 const evWrite=(id,r)=>{try{localStorage.setItem(EK(id),JSON.stringify(r))}catch(e){}};
 const evMeta=s=>({win:s?s.res.filter(r=>r.st==='得獎').length:0,st:!!(s&&s.res.length)});
 const OLDT=['年終尾牙','2026尾牙','下一個幸運兒就是你！','幸運抽獎器'],tClean=t=>{t={...(t||{})};if(OLDT.includes(t.eye))delete t.eye;if(OLDT.includes(t.title))delete t.title;return t};
-const dNorm=x=>x?{t:tClean(x.t),c:x.c||{},g:{lan:1,sheep:1,...(x.g||{})},th:x.th||(Object.keys(x.c||{}).length?'custom':'red')}:{t:{},c:{},g:{lan:1,sheep:1},th:'red'};
+const dNorm=x=>x?{t:tClean(x.t),c:x.c||{},g:{lan:1,sheep:1,...(x.g||{})},th:(x.th&&x.th!=='ocean'?x.th:(Object.keys(x.c||{}).length?'custom':'red'))}:{t:{},c:{},g:{lan:1,sheep:1},th:'red'};
 const evInfo=id=>IDX.ev.find(e=>e.id===id);
 function evApply(r){r=r||{};C={...DC,...(r.C||{})};ST=Array.isArray(r.ST)&&r.ST.length?r.ST:[mk()];mig();S=r.S||null;if(S&&!S.res.length)S=null;TS=r.ts||0;D=dNorm(r.D);UL=false;fix()}
 function save(){if(PV)return;try{TS=Date.now();const e=evInfo(IDX.act);evWrite(IDX.act,{C,ST,S,D,ts:TS,n:e.name});e.ts=TS;Object.assign(e,evMeta(S));idxSave()}catch(err){}gq()}
@@ -261,7 +278,6 @@ const TH=[{id:'red',n:'喜慶紅金',c:{}},
 {id:'navy',n:'午夜藍金',c:{'--bg':'#1b2f66','--bg2':'#0b1634','--card':'#f6f3ea','--ink':'#14213d','--title':'#f6dc8b','--gold':'#d9b44a','--reel':'#1f3f82','--num':'#f6dc8b','--btn':'#1f3f82','--red':'#1f3f82','--red-d':'#0f2554','--wool':'#fbf8ef','--line':'#e2d8b8'}},
 {id:'jade',n:'翡翠金綠',c:{'--bg':'#0f6a4f','--bg2':'#06382a','--card':'#f7f4e8','--ink':'#123a2c','--title':'#ffe9a8','--gold':'#e0b84a','--reel':'#0f7d5c','--num':'#fff0bd','--btn':'#0b5a43','--red':'#0b6b4d','--red-d':'#064230','--wool':'#fbf9ef','--line':'#dcd9b6'}},
 {id:'violet',n:'華麗紫金',c:{'--bg':'#53257a','--bg2':'#2a1142','--card':'#faf6ff','--ink':'#2b1646','--title':'#ffe08a','--gold':'#f0c24f','--reel':'#6e2fa3','--num':'#ffe9a6','--btn':'#5a2485','--red':'#6e2fa3','--red-d':'#43196a','--wool':'#fdfaff','--line':'#e3d4f2'}},
-{id:'ocean',n:'海洋藍',c:{'--bg':'#0d78b0','--bg2':'#07496f','--card':'#f3faff','--ink':'#0c2b40','--title':'#fff1b0','--gold':'#ffd166','--reel':'#0a5683','--num':'#fff1b0','--btn':'#0a5683','--red':'#0a6fa8','--red-d':'#064a73','--wool':'#f9fdff','--line':'#cfe5f1'}},
 {id:'champ',n:'香檳白金',c:{'--bg':'#efe5d3','--bg2':'#d6c5a5','--card':'#fffdf8','--ink':'#2c2a26','--title':'#5a4320','--gold':'#b38b3a','--reel':'#3b352c','--num':'#f3dc92','--btn':'#3b352c','--red':'#8a6a22','--red-d':'#5e4513','--wool':'#faf6ec','--line':'#e6dcc4'}},
 {id:'graph',n:'石墨黑金',c:{'--bg':'#2b2b2f','--bg2':'#0e0e10','--card':'#f4f4f6','--ink':'#1d1d1f','--title':'#f2d48a','--gold':'#c9a24b','--reel':'#38383c','--num':'#f2d48a','--btn':'#38383c','--red':'#a8802c','--red-d':'#6e5218','--wool':'#fafafb','--line':'#dcdcdf'}}];
 let D={t:{},c:{},g:{lan:1,sheep:1},th:'red'};
@@ -350,7 +366,7 @@ function tv(k,b){VO[k]=!VO[k];const e=$('#p'+k);e.hidden=!VO[k];if(VO[k])e.inner
 const rv=()=>['R','P'].forEach(k=>{const e=$('#p'+k);if(e&&VO[k]&&!e.hidden)e.innerHTML=k==='R'?vR():vP()});
 /* 設定頁 */
 function setView(){fix();const MAN=ST.some(s=>s.prizes.some(p=>p.no.trim()));const T=C.mode==='table',bd=exBad(),LK=!!S&&S.res.length>0&&!UL;const nm={};ST.forEach(s=>s.prizes.forEach(p=>{const k=p.no.trim();if(k)nm[k]=(nm[k]||0)+1}));const dn=Object.values(nm).filter(v=>v>1).reduce((a,b)=>a+b,0),w=[...(dn?[`注意：有${dn}個獎項編號重複登錄，請再次確認獎項填入是否無誤！`]:[]),...(C.rep?['注意：「允許重複得獎」功能已開啟！已得獎者後續獎項有可能會重複抽出！']:[]),...(bd.length?['排除選項無法辨識，已被忽略：'+esc(bd.join('、'))]:[]),...chk(),...wr()];
-$('#app').innerHTML=`<div class="sh0"><button class="gset" id="gs" onclick="gClick()">${gChipH()}</button><button class="bk" onclick="V='home';render()">← 回首頁</button><h1>活動設定</h1><div class="evbar">目前活動：<b>${esc(evInfo(IDX.act).name)}</b><button class="sm" onclick="evRen(IDX.act)">重新命名</button><button class="sm" onclick="evList()">切換活動</button></div><p>設定會自動記憶在此瀏覽器，建議連結Google登入同步進度，設定完成後可匯出設定，以避免不同瀏覽器切換遺失資料！</p></div><div class="wrap">${S&&S.res.length?(UL?'<div class="wr">⚠ 已解鎖修改：變更不會影響目前進度，需按「套用設定並重新開始」才會生效（會清空抽獎結果）；若按「繼續抽獎」則放棄這些修改。</div>':'<div class="wr">目前已有抽獎進度，名單與獎項設定已鎖定，避免與進度不一致。 <button onclick="UL=true;SNAP=JSON.stringify({C,ST});setView()">解鎖修改</button></div>'):''}
+$('#app').innerHTML=`<div class="sh0"><button class="gset" id="gs" onclick="gClick()">${gChipH()}</button><button class="bk" onclick="V='home';render()">← 回首頁</button><h1>活動設定</h1><div class="evbar">目前活動：<b>${esc(evInfo(IDX.act).name)}</b><button class="sm" onclick="evRen(IDX.act)">重新命名</button><button class="sm" onclick="evList()">切換活動</button><button class="sm" onclick="helpOpen(0)">使用說明</button></div><p>設定會自動記憶在此瀏覽器，建議連結Google登入同步進度，設定完成後可匯出設定，以避免不同瀏覽器切換遺失資料！</p></div><div class="wrap">${S&&S.res.length?(UL?'<div class="wr">⚠ 已解鎖修改：變更不會影響目前進度，需按「套用設定並重新開始」才會生效（會清空抽獎結果）；若按「繼續抽獎」則放棄這些修改。</div>':'<div class="wr">目前已有抽獎進度，名單與獎項設定已鎖定，避免與進度不一致。 <button onclick="UL=true;SNAP=JSON.stringify({C,ST});setView()">解鎖修改</button></div>'):''}
 <div class="card lk"><h2>抽獎名單</h2><div class="g"><label>名單模式${SE('C.mode',[['table','抽多少桌'],['num','抽多少人'],['csv','匯入csv檔']],C.mode,'data-r=1')}</label>
 ${T?`<label>桌數${I('C.tables',C.tables,'number','min=1 max=150')}</label><label>每桌人數${I('C.seats',C.seats,'number','min=1 max=12')}</label>`:C.mode==='csv'?`<label>名單檔案<span class="fl"><button class="sm" onclick="impR()">匯入csv檔</button><em>${C.roster.length?'已匯入 '+C.roster.length+' 位':'尚未匯入'}</em></span></label>`:`<label>總人數${I('C.total',C.total,'number','min=1 max=1500')}</label>`}</div>
 ${C.mode==='csv'?'<div class="wr">⚠ 提醒：此模式抽獎模式僅能使用「一般抽法」，不適用「桌獎抽法」，CSV檔案標題須包含「單位」「大名」，每次抽出一組「單位＋大名」；此模式沒有排除選項。</div>':`<label>排除選項（以逗號分隔）<textarea data-k="C.excl" rows="2" placeholder="${T?'例：3-5（3桌5號）、7（整個7桌）、8~10（8至10桌）':'例：13、20~25（或 20-25）'}">${esc(C.excl)}</textarea></label>`}
@@ -398,8 +414,21 @@ if(still){el.textContent=t.join('')}else t.forEach((c,i)=>{const col=document.cr
 const dur=1000+i*130;st.animate([{transform:'translateY(0)'},{transform:`translateY(-${(a.length-1)/a.length*100}%)`}],{duration:dur,easing:'cubic-bezier(.2,.8,.3,1.12)',fill:'forwards'})});
 prev=t;HT=setTimeout(go,4000)};go()}
 
+
+/* 使用說明 */
+const HS=[['建立與切換活動','點首頁「目前活動」可新增、複製、重新命名或切換活動（最多 3 個），每個活動各自保存設定、樣式與抽獎進度。','<div class="hs1"><div class="hc">我的活動</div><div class="hc b2">新活動2</div><div class="hbtn">新增活動</div></div>'],
+['設定名單與獎項','按「開始新活動」進入設定：選擇名單模式（抽桌／抽號／匯入 CSV），設定獎項、人數與抽出方式，也可匯入 CSV 獎項。','<div class="hs2"><div class="hr">桌數　100</div><div class="hr">每桌人數　10</div><div class="hr">第 1 獎　禮品獎　3 位</div></div>'],
+['開始執行抽獎','設定完成按「開始執行抽獎」。想先看效果可用「彩排預覽」，彩排不會記錄中獎名單。','<div class="hs3"><div class="hbtn">開始執行抽獎</div><div class="hsm">彩排預覽</div></div>'],
+['抽出得獎者','選好獎項與人數後按「開始抽獎」，號碼轉動後依序停下。得獎者可勾選是否到場，不在場者依設定略過或重抽。','<div class="hs4"><div class="rl"><i>3</i><i>7</i><i>1</i><i>8</i><i>5</i></div><div class="rl d2"><i>9</i><i>2</i><i>6</i><i>4</i><i>7</i></div><div class="rl d3"><i>1</i><i>5</i><i>8</i><i>3</i><i>2</i></div></div>'],
+['中獎名單與匯出','隨時可開啟「中獎名單」查看，並匯出成 CSV、PDF 或圖片。','<div class="hs5"><div class="hr">第 1 獎　禮品獎　3 桌 5 號</div><div class="hr">第 1 獎　禮品獎　8 桌 2 號</div><div class="hr">第 2 獎　大獎　1 桌 9 號</div><div class="hx"><span>CSV</span><span>PDF</span><span>圖片</span></div></div>'],
+['Google 登入備份','登入 Google 後，設定與進度會同步到你雲端硬碟的專屬空間，換電腦或瀏覽器也能接著用。也可用「匯出設定」另外備份。','<div class="hs6"><div class="cl">☁</div><div class="ar">↑</div><div class="pc">▭</div></div>']];
+let HP=0,HTm=0;
+function helpOpen(i){HP=((i==null?HP:i)+HS.length)%HS.length;const s=HS[HP];clearTimeout(HTm);
+M(`<div class="pop s helpw"><h2>使用說明</h2><div class="hst" key="${HP}"><div class="hsc">${s[2]}</div><h3>${HP+1}. ${s[0]}</h3><p>${s[1]}</p></div><div class="hdots">${HS.map((_,k)=>`<i class="${k===HP?'on':''}" onclick="helpOpen(${k})"></i>`).join('')}</div><div class="rw"><button class="b p alt" onclick="helpOpen(HP-1)">上一步</button><button class="b p alt" onclick="helpOpen(HP+1)">下一步</button><button class="b p alt" onclick="clearTimeout(HTm);M()">關閉</button></div></div>`);
+HTm=setTimeout(()=>{if(document.querySelector('.helpw'))helpOpen(HP+1)},6000)}
+
 function homeView(){const dn=S?S.res.filter(r=>r.st==='得獎').length:0,ev=S&&S.cur<0;
-$('#app').innerHTML=`<div class="home"><div class="hm-in"><div class="hm-eye" id="hme"></div><h1 class="hm-t" style="--tn:5">幸運抽獎器</h1><div class="hm-ln"></div><button class="hm-evb" onclick="evList()">目前活動：<b>${esc(evInfo(IDX.act).name)}</b>　切換 ▾</button>
+$('#app').innerHTML=`<div class="home"><button class="hm-help" onclick="helpOpen(0)">使用說明</button><div class="hm-in"><div class="hm-eye" id="hme"></div><h1 class="hm-t" style="--tn:5">幸運抽獎器</h1><div class="hm-ln"></div><button class="hm-evb" onclick="evList()">目前活動：<b>${esc(evInfo(IDX.act).name)}</b>　切換 ▾</button>
 <div class="hm-main">${S?`<button class="hm-b pri" onclick="st0()">繼續上次抽獎</button><div class="hm-info">已有 ${dn} 位得獎者　·　最後更新 ${fts(TS)}</div><div class="hm-two"><button class="hm-b hm-s" onclick="V='set';render()">查看修改設定</button><button class="hm-b hm-s" onclick="rs(1)">重新設定抽獎</button></div>`:`<button class="hm-b pri" onclick="V='set';render()">開始新活動</button>`}</div>
 </div>
 <div class="hm-ft" id="hmf">${ltsT()}</div><button class="hm-g" onclick="gClick()">${gChipH()}</button></div>`;heroStart()}
@@ -429,7 +458,7 @@ opts=S.plan.map((x,i)=>x.done?'':`<option value="${i}"${i===S.cur?' selected':''
 const gi=dn?'':(p.gift||'').trim(),gl=gi?`${C.prov?'提供':'　'}<b class="pi b">${esc(gi)}</b>`:'';
 const wns=`<div class="wns">${wl.map(x=>`<div class="wnl">⚠ ${x}</div>`).join('')}</div>`;
 const st=`<p class="status${sm[1]?' warn':''}" id="status">${esc(sm[0])}</p>`;
-const body=dn?'<div class="prize dp">抽獎完成</div><div class="pinfo">全數獎項已抽出，恭喜所有得獎者！</div><div class="dnb"><button class="big" onclick="csv()">匯出中獎名單</button><button class="big" onclick="lsOpen()">查看中獎名單</button></div><div class="dnb"><button class="sm2" onclick="rs(0)">再玩一次</button><button class="sm2" onclick="rs(1)">重新設定</button></div>':
+const body=dn?'<div class="prize dp">抽獎完成</div><div class="pinfo">全數獎項已抽出，恭喜所有得獎者！</div><div class="dnb"><button class="big" onclick="wlEx()">匯出中獎名單</button><button class="big" onclick="lsOpen()">查看中獎名單</button></div><div class="dnb"><button class="sm2" onclick="rs(0)">再玩一次</button><button class="sm2" onclick="rs(1)">重新設定</button></div>':
 `<div class="zh"><div class="hd"><div class="prize">${esc(p.no)}</div><div class="pinfo">${p.si<0?'':`<b class="pi a">${esc(p.pn)}</b>${gl}　`}共<b class="pi c">${n}</b>位${sq?`（第 ${Math.min(p.got.length+p.void+1,n)} / ${n} 位）`:''}</div></div>${wns}</div>
 <div class="zm"><div class="reels${tb?'':' solo'}${cvm?' cv':''}" id="reels">${tb?`<div class="reel" id="rT"><div class="lab">${cvm?'單位':'桌次'}</div><div class="num" id="nT"${cvm?` style="${fz(C.roster.map(r=>r.u).concat(C.roster.map(r=>r.n)))}"`:''}>--</div></div>`:''}<div class="reel" id="rS"><div class="lab">${tb?(cvm?'大名':'號次'):p.gm==='table'?'座位號':'編號'}</div><div class="num" id="nS"${cvm?` style="${fz(C.roster.map(r=>r.u).concat(C.roster.map(r=>r.n)))}"`:''}>--</div></div></div>
 <div class="multi${bm?' on':' rv'}" id="multi"${bm?'':' style="min-height:112px"'}>${bm?Array.from({length:n},(_,i)=>`<div class="mc"><small>第 ${i+1} 位</small>--</div>`).join(''):''}</div></div>
@@ -438,7 +467,7 @@ const body=dn?'<div class="prize dp">抽獎完成</div><div class="pinfo">全數
 <button id="dr" class="big" onclick="go()" ${p.ok?'':'disabled'}>開始抽獎</button></div></div>${st}</div>`;
 $('#run').innerHTML=`<main><header class="hero"><div class="ht"><div class="eyebrow">${tx('eye')}</div><h1>${tx('title')}</h1></div></header><div class="tabs">${tabs}</div><section class="stage${bm?' bm':''}${dn?'':' zn'}">${body}${dn?st:''}</section></main>
 <div class="tools">${PV?'<button onclick="xpv()">結束預覽</button>':'<button onclick="V=\'set\';render()">設定</button>'}<button onclick="fs()">全螢幕</button>${C.bonus?'<button onclick="bonus()">＋加碼獎</button>':''}</div>
-${PV?'<div class="pvb">⚠彩排模式：僅預覽執行畫面，不記錄中獎名單！</div>':''}<button class="ls-btn" onclick="lsT(this)">${LO?'✕ 關閉名單':'中獎名單'}</button><section class="list${LO?' open':''}" id="ls"><h2><span>中獎名單</span><small>已領獎 ${S.res.filter(r=>r.st==='得獎').length} 位</small></h2><div id="wl">${lsHtml()}</div><div class="lt"><button class="tg${LF?'':' on'}" onclick="lsF(0)">簡易名單</button><button class="tg${LF?' on':''}" onclick="lsF(1)">完整名單</button><button onclick="csv()">匯出中獎名單</button><button onclick="rs(0)">清空結果</button><button onclick="rs(1)">全部清空</button></div></section>`;rsz()}
+${PV?'<div class="pvb">⚠彩排模式：僅預覽執行畫面，不記錄中獎名單！</div>':''}<button class="ls-btn" onclick="lsT(this)">${LO?'✕ 關閉名單':'中獎名單'}</button><section class="list${LO?' open':''}" id="ls"><h2><span>中獎名單</span><small>已領獎 ${S.res.filter(r=>r.st==='得獎').length} 位</small></h2><div id="wl">${lsHtml()}</div><div class="lt"><button class="tg${LF?'':' on'}" onclick="lsF(0)">簡易名單</button><button class="tg${LF?' on':''}" onclick="lsF(1)">完整名單</button><button onclick="wlEx()">匯出中獎名單</button><button onclick="rs(0)">清空結果</button><button onclick="rs(1)">全部清空</button></div></section>`;rsz()}
 function say(m,w){MSG=[m,w];const e=$('#status');if(e){e.textContent=m;e.className='status'+(w?' warn':'')}}
 function cnl(){const p=cur();if(busy||!p||p.got.length)return;p.ok=false;MSG=null;save();runView()}
 function cfm(){const p=cur();p.N=cl($('#nn').value,1,10);p.ok=true;MSG=null;save();runView()}
@@ -484,6 +513,29 @@ if(S.pool.length){say('有人未到場或作廢，重新抽出補足…');ws=pic
 if(p.got.length+p.void>=p.N||!(T?S.seat:S.pool).length)fin(p)}
 function bonus(){M(`<div class="pop s" style="text-align:center"><h2>新增加碼獎項</h2><p style="font-size:20px">請選擇抽獎名單來源：</p><div class="rw"><button class="b p alt" style="min-width:230px" onclick="ab(0)">目前未得獎者加碼</button><button class="b p alt" style="min-width:230px" onclick="ab(1)">全數初始名單加碼</button></div><div class="rw"><button class="b p alt" onclick="M()">取消</button></div></div>`)}
 function ab(r){S.bn++;const n='加碼獎'+(S.bn>1?S.bn:'');S.plan.push({si:-1,od:S.bn,sn:'加碼獎',cat:'驚喜獎',gm:'gen',no:n,pn:n,gift:'',per:1,pm:'once',rs:!!r,got:[],void:0,abs:[],N:0,ok:false,done:false});S.cur=S.plan.length-1;MSG=null;save();M();render()}
+
+/* 中獎名單匯出：CSV / PDF / 圖片 */
+const wlRows=()=>srt(S.res).map(x=>[x.sn,odOf(x),x.no,x.pn,x.gift||'',x.w,x.st,x.t]);
+function wlEx(){M(`<div class="pop s" style="text-align:center"><h2>匯出中獎名單</h2><p style="font-size:16px;margin:4px 0 14px">請選擇匯出格式：</p><div class="rw"><button class="b p alt" style="min-width:260px" onclick="M();csv()">CSV（可用 Excel 開啟）</button></div><div class="rw"><button class="b p alt" style="min-width:260px" onclick="wlPdf()">存成 PDF</button></div><div class="rw"><button class="b p alt" style="min-width:260px" onclick="wlImg()">存成圖片（PNG）</button></div><div class="rw"><button class="b p alt" onclick="M()">取消</button></div></div>`)}
+function wlDraw(rows,W,H,pg,np){const cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d'),cs=getComputedStyle(document.documentElement),col=(k,d)=>(cs.getPropertyValue(k)||'').trim()||d,hd=col('--red','#c8102e'),F='"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
+g.fillStyle='#fff';g.fillRect(0,0,W,H);const m=Math.round(W*.05),s=W/1000;
+g.fillStyle=hd;g.fillRect(0,0,W,Math.round(110*s));g.fillStyle='#fff';g.font=`700 ${Math.round(40*s)}px ${F}`;g.textBaseline='middle';g.fillText('中獎名單　'+evInfo(IDX.act).name,m,Math.round(55*s));
+g.font=`${Math.round(20*s)}px ${F}`;g.textAlign='right';g.fillText(new Date().toLocaleString('zh-TW',{hour12:false})+(np>1?`　第 ${pg}/${np} 頁`:''),W-m,Math.round(55*s));g.textAlign='left';
+const cols=[['階段',.11],['順序',.06],['獎項編號',.1],['獎項',.2],['獎品',.16],['得獎者',.16],['狀態',.08],['時間',.13]],tw=W-2*m;let x=m,xs=cols.map(c=>{const v=x;x+=tw*c[1];return v});
+const rh=Math.round(44*s);let y=Math.round(130*s);g.fillStyle='#f3f3f5';g.fillRect(m,y,tw,rh);g.fillStyle='#333';g.font=`700 ${Math.round(20*s)}px ${F}`;cols.forEach((c,i)=>g.fillText(c[0],xs[i]+8*s,y+rh/2));y+=rh;
+g.font=`${Math.round(20*s)}px ${F}`;const fit=(t,w)=>{t=String(t==null?'':t);if(g.measureText(t).width<=w)return t;while(t.length>1&&g.measureText(t+'…').width>w)t=t.slice(0,-1);return t+'…'};
+rows.forEach((r,k)=>{if(k%2){g.fillStyle='#fafafb';g.fillRect(m,y,tw,rh)}g.fillStyle=r[6]==='得獎'?'#222':'#999';r.forEach((v,i)=>g.fillText(fit(v,tw*cols[i][1]-14*s),xs[i]+8*s,y+rh/2));g.strokeStyle='#e6e6ea';g.lineWidth=1;g.beginPath();g.moveTo(m,y+rh);g.lineTo(m+tw,y+rh);g.stroke();y+=rh});
+return cv}
+const wlPages=(rows,per)=>{const n=Math.max(1,Math.ceil(rows.length/per));return Array.from({length:n},(_,i)=>rows.slice(i*per,(i+1)*per))};
+function wlImg(){M();const rows=wlRows();if(!rows.length)return toast('目前沒有中獎資料');const W=1600,s=W/1000,per=150,ps=wlPages(rows,per),d=dstr();
+ps.forEach((p,i)=>{const H=Math.round((130+44*(p.length+1)+40)*s),cv=wlDraw(p,W,H,i+1,ps.length);setTimeout(()=>cv.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`中獎名單_${d}${ps.length>1?'_'+(i+1):''}.png`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500)},'image/png'),i*400)});toast(ps.length>1?`已下載 ${ps.length} 張圖片`:'已下載圖片')}
+function wlPdf(){M();const rows=wlRows();if(!rows.length)return toast('目前沒有中獎資料');const W=1240,H=1754,per=34,ps=wlPages(rows,per),en=new TextEncoder(),parts=[],offs=[];let len=0;
+const put=u=>{parts.push(u);len+=u.length},pt=s=>put(en.encode(s)),obj=(n,fn)=>{offs[n]=len;pt(n+' 0 obj\n');fn();pt('\nendobj\n')};
+const jp=ps.map((p,i)=>{const d=wlDraw(p,W,H,i+1,ps.length).toDataURL('image/jpeg',.92).split(',')[1],b=atob(d),u=new Uint8Array(b.length);for(let k=0;k<b.length;k++)u[k]=b.charCodeAt(k);return u}),N=ps.length;
+pt('%PDF-1.4\n');obj(1,()=>pt('<</Type/Catalog/Pages 2 0 R>>'));obj(2,()=>pt(`<</Type/Pages/Count ${N}/Kids[${ps.map((_,i)=>(3+i*3)+' 0 R').join(' ')}]>>`));
+jp.forEach((u,i)=>{const pn=3+i*3,cn=pn+1,im=pn+2;obj(pn,()=>pt(`<</Type/Page/Parent 2 0 R/MediaBox[0 0 595 842]/Resources<</XObject<</I${i} ${im} 0 R>>>>/Contents ${cn} 0 R>>`));const cs=`q 595 0 0 842 0 0 cm /I${i} Do Q`;obj(cn,()=>pt(`<</Length ${cs.length}>>\nstream\n${cs}\nendstream`));obj(im,()=>{pt(`<</Type/XObject/Subtype/Image/Width ${W}/Height ${H}/ColorSpace/DeviceRGB/BitsPerComponent 8/Filter/DCTDecode/Length ${u.length}>>\nstream\n`);put(u);pt('\nendstream')})});
+const xo=len,tot=3+N*3;pt(`xref\n0 ${tot}\n0000000000 65535 f \n`);for(let k=1;k<tot;k++)pt(String(offs[k]).padStart(10,'0')+' 00000 n \n');pt(`trailer\n<</Size ${tot}/Root 1 0 R>>\nstartxref\n${xo}\n%%EOF`);
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(parts,{type:'application/pdf'}));a.download=`中獎名單_${dstr()}.pdf`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);toast('已下載 PDF')}
 function csv(){TX('匯出中獎名單（CSV）','階段,順序,獎項編號,獎項名稱/提供者,獎品名稱,得獎者,狀態,時間\n'+srt(S.res).map(r=>[r.sn,odOf(r),r.no,r.pn,r.gift,r.w,r.st,r.t].map(x=>`"${x}"`).join(',')).join('\n'),'winners.csv')}
 function TX(h,t,fn,ap){window._ap=ap;M(`<div class="pop" style="text-align:left"><h2>${h}</h2><textarea id="tx" rows="10" ${ap?'':'readonly'}>${esc(t)}</textarea><div class="rw"><button onclick="cp()">複製</button>${fn?`<a class="bt" download="${fn}" href="${URL.createObjectURL(new Blob(['\ufeff'+t],{type:'text/plain'}))}">下載檔案</a>`:''}${ap?'<button onclick="_ap()">套用</button>':''}<button onclick="M()">關閉</button></div></div>`)}
 function cp(){const e=$('#tx');e.select();try{navigator.clipboard.writeText(e.value)}catch(x){}try{document.execCommand('copy')}catch(x){}toast('已複製')}
