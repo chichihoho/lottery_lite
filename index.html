@@ -228,22 +228,68 @@ body.hm .home{z-index:1}
 .hm-b.pri:hover::after{animation-duration:1.1s}
 @media(prefers-reduced-motion:reduce){.hm-b.pri::after{animation:none;display:none}}
 .hm-help{position:absolute;top:16px;left:16px;font-size:14px;padding:8px 18px;background:rgba(255,255,255,.08);color:var(--gold-l);border:1px solid color-mix(in srgb,var(--gold) 70%,transparent);border-radius:999px}.hm-help:hover{background:rgba(255,255,255,.2)}
-.helpw{max-width:520px;text-align:center}.hst{animation:hsin .5s ease both}.hst h3{margin:12px 0 4px;font-size:20px}.hst p{margin:0 0 10px;font-size:14px;line-height:1.7;color:var(--mut);min-height:72px}
-@keyframes hsin{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
-.hsc{height:150px;border-radius:14px;background:linear-gradient(180deg,var(--bg),var(--bg2));display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;color:var(--gold-l)}
-.hdots{display:flex;gap:8px;justify-content:center;margin:4px 0 12px}.hdots i{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer}.hdots i.on{background:var(--red);width:22px;border-radius:4px}
-.hc,.hr{background:rgba(255,255,255,.16);border:1px solid color-mix(in srgb,var(--gold) 60%,transparent);border-radius:10px;padding:8px 18px;font-size:14px;font-weight:700;margin:4px}
-.hbtn{background:linear-gradient(180deg,var(--gold-l),var(--gold));color:var(--red-d);font-weight:700;border-radius:999px;padding:10px 26px;font-size:15px;animation:hpulse 1.4s ease-in-out infinite}.hsm{font-size:12px;border:1px solid var(--gold);border-radius:999px;padding:5px 14px;margin-left:10px;animation:hblink 1.4s infinite}
-@keyframes hpulse{50%{transform:scale(1.08);box-shadow:0 0 22px rgba(255,220,120,.8)}}@keyframes hblink{50%{opacity:.35}}
-.hs1{display:flex;flex-direction:column;align-items:center}.hs1 .b2{animation:hpop 3s infinite}@keyframes hpop{0%,40%{opacity:0;transform:scale(.6)}60%,100%{opacity:1;transform:none}}
-.hs2 .hr{animation:hslide .7s ease both}.hs2 .hr:nth-child(2){animation-delay:.3s}.hs2 .hr:nth-child(3){animation-delay:.6s}.hs5 .hr{animation:hslide .7s ease both;font-size:13px}.hs5 .hr:nth-child(2){animation-delay:.25s}.hs5 .hr:nth-child(3){animation-delay:.5s}
-@keyframes hslide{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
-.hs3{display:flex;align-items:center}
-.hs4{display:flex;gap:12px}.rl{width:44px;height:64px;overflow:hidden;border-radius:8px;background:rgba(255,255,255,.18);border:1px solid var(--gold);font-size:40px;font-weight:900;line-height:64px}.rl i{display:block;font-style:normal;height:64px;animation:hroll 2.4s cubic-bezier(.2,.8,.3,1.1) infinite}.rl.d2 i{animation-delay:.2s}.rl.d3 i{animation-delay:.4s}
-.rl{display:flex;flex-direction:column}.rl i{flex:none}@keyframes hroll{0%{transform:translateY(0)}70%,100%{transform:translateY(-256px)}}
-.hs5{display:flex;flex-direction:column;align-items:center}.hx{display:flex;gap:8px;margin-top:6px}.hx span{font-size:12px;font-weight:700;background:var(--gold);color:var(--red-d);padding:3px 12px;border-radius:999px;animation:hpulse 1.8s infinite}.hx span:nth-child(2){animation-delay:.3s}.hx span:nth-child(3){animation-delay:.6s}
-.hs6{display:flex;flex-direction:column;align-items:center;gap:0}.hs6 .cl{font-size:54px;line-height:1}.hs6 .ar{font-size:30px;animation:hup 1.6s ease-in-out infinite}.hs6 .pc{font-size:34px;line-height:1}@keyframes hup{0%{opacity:0;transform:translateY(10px)}50%{opacity:1}100%{opacity:0;transform:translateY(-10px)}}
-@media(prefers-reduced-motion:reduce){.hsc *,.hst{animation:none!important}}
+.helpw{max-width:560px;width:calc(100vw - 32px);text-align:center;position:relative}.hx2{position:absolute;top:10px;right:14px;font-size:18px;background:none;border:0;color:var(--mut);cursor:pointer}
+.hst{animation:hsin .45s ease both}.hst h3{margin:12px 0 4px;font-size:19px}.hst p{margin:0 0 8px;font-size:14px;line-height:1.7;color:var(--mut);min-height:72px}
+@keyframes hsin{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+.hsc{height:210px;border-radius:14px;background:linear-gradient(180deg,var(--bg),var(--bg2));position:relative;overflow:hidden;color:var(--gold-l);font-size:12px;text-align:left}
+.hnav{display:flex;align-items:center;justify-content:center;gap:14px;margin:2px 0 12px}.hzn{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--gold);background:var(--card);color:var(--red);font-size:18px;font-weight:700;cursor:pointer}.hzn:disabled{opacity:.3;cursor:default}
+.hdots{display:flex;gap:8px}.hdots i{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:all .3s}.hdots i.on{background:var(--red);width:22px;border-radius:4px}
+.hsc .mh{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}.mh-e{font-size:11px;letter-spacing:.3em;color:var(--gold)}.mh-t{font:900 30px "Noto Serif TC",serif;letter-spacing:.1em;color:var(--gold-l)}.mh-t.sm{font-size:20px;text-align:center;margin:8px 0 6px}
+.mh-pill{font-size:12px;border:1px solid var(--gold);border-radius:999px;padding:5px 14px;background:rgba(255,255,255,.1);margin-top:4px}
+.mdlg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78%;background:#fff;color:#222;border-radius:12px;padding:8px 10px;box-shadow:0 10px 30px rgba(0,0,0,.4);font-size:11px;transition:opacity .3s,transform .3s}.mdlg>b{display:block;text-align:center;margin-bottom:5px;font-size:12px}
+.hid{opacity:0;pointer-events:none}.hidd{display:none!important}.mdlg.hid{transform:translate(-50%,-46%) scale(.96)}.mdlg.show,.mrun.show,.mside.show,.show.hid{opacity:1}.mdlg.show{transform:translate(-50%,-50%)}
+.mrow{display:flex;justify-content:space-between;align-items:center;border:1px solid #e4e4ea;border-radius:8px;padding:4px 7px;margin:3px 0;background:#fafafb;transition:opacity .3s}.mrow em{font-style:normal;font-size:9px;color:#0a6fd8;font-weight:700;margin-left:6px;transition:opacity .3s}.mrow em.hid{opacity:0}
+.mbs{display:flex;gap:4px}.mbs u,.mnew,.mb2{text-decoration:none;border:1px solid #cfcfd6;border-radius:6px;padding:2px 7px;background:#fff;font-size:10px;transition:all .2s;color:#222}.mnew{display:block;text-align:center;margin:6px auto 0;width:50%;color:#0a6fd8}
+.hit{background:#0a6fd8!important;color:#fff!important;transform:scale(.96)}
+.hzc{position:absolute;inset:10px;background:#f5f5f8;border-radius:10px;padding:10px 12px;color:#222}.mct{display:block;margin-bottom:6px;font-size:13px}.mf{display:flex;gap:8px}.mf label,.mfw{flex:1;font-size:10px;color:#777;display:block}.mfw{margin-top:6px}
+.msel,.mi{display:block;border:1px solid #cfcfd6;border-radius:6px;background:#fff;color:#222;font-size:11px;padding:4px 7px;margin-top:2px;min-height:24px;box-sizing:border-box;transition:all .2s}.msel:after{content:" ▾";float:right;color:#888}
+.mbr{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}.mb2{padding:4px 11px;font-size:11px}.mb3{background:var(--red);color:#fff;border-radius:6px;padding:5px 12px;font-size:11px;font-weight:700;transition:all .2s}
+.mt{font-size:10px}.mth,.mtr{display:grid;grid-template-columns:.8fr .6fr .9fr 1.4fr 1.1fr .8fr;gap:4px;margin-bottom:4px}.mth span{color:#777}.mtr .mi{min-height:22px;font-size:10px;margin:0;padding:3px 5px}
+.hzchips{display:flex;flex-wrap:wrap;gap:4px}.hzchips i{font-style:normal;border:1px solid #cfcfd6;border-radius:6px;padding:2px 7px}.hzchips i.x{text-decoration:line-through;color:#aaa;background:#eee}
+.mrun{position:absolute;inset:0;background:linear-gradient(180deg,var(--bg),var(--bg2));transition:opacity .35s}.mrun.on{opacity:1}.mrun.hid{opacity:0}.mrun .mbr{justify-content:center}
+.mpv{background:rgba(0,0,0,.55);color:#ffd9d9;font-size:10px;text-align:center;padding:3px;transition:opacity .3s}.mpv.hid{opacity:0}
+.mpan{display:flex;gap:10px;padding:0 14px}.mpan>span{flex:1;height:78px;border-radius:10px;border:2px solid var(--gold);background:rgba(255,255,255,.1);text-align:center;color:var(--gold-l);font-size:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}.mpan b{font-weight:700}.mpan em{font-style:normal;font:900 28px "Noto Serif TC",serif;min-width:60px}
+.mbar{display:flex;gap:10px;align-items:center;justify-content:center;font-size:10px;margin:2px 0 8px}.mbar u{text-decoration:none;background:#fff8ea;color:#222;border-radius:6px;padding:2px 6px}
+.mrun .mbar .mb3,.mrun>.mbr .mb3{background:linear-gradient(180deg,var(--gold-l),var(--gold));color:var(--red-d)}
+.hzk{font-size:10px;color:#0a6fd8;transition:all .25s}.hzk.off{color:#c0392b}.mdlg small{display:block;text-align:center;color:#c0392b;font-size:10px;transition:opacity .3s}
+.mls{position:absolute;right:10px;bottom:8px;background:var(--gold);color:var(--red-d);font-weight:700;font-size:11px;border-radius:999px;padding:4px 12px}
+.mside{position:absolute;right:0;top:0;bottom:0;width:48%;background:#fff;color:#222;padding:10px;font-size:11px;box-shadow:-8px 0 20px rgba(0,0,0,.3);transform:translateX(100%);transition:transform .45s,opacity .3s}.mside.show{transform:none}.mside>b{display:block;margin-bottom:6px}.mside .mb2{margin-top:10px;display:inline-block}
+#xp{width:60%;text-align:center}#xp .mb2{display:block;margin:5px 0}
+.g7{background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--gold-l)}.mgo{position:absolute;top:10px;right:12px;border:1px solid var(--gold);border-radius:999px;padding:5px 14px;font-size:12px;background:rgba(255,255,255,.1);transition:all .3s}.mgo.ok{background:var(--gold);color:var(--red-d);font-weight:700}
+.mcl{position:absolute;left:50%;top:48px;transform:translateX(-50%);font-size:54px;line-height:1}.mup{position:absolute;left:50%;top:106px;transform:translateX(-50%);font-size:28px;animation:hup 1s ease-in-out infinite}@keyframes hup{0%{margin-top:10px;opacity:0}50%{opacity:1}100%{margin-top:-8px;opacity:0}}
+.mnote{position:absolute;left:0;right:0;top:146px;text-align:center;font-size:11px;opacity:0;transition:opacity .4s}.mnote.show{opacity:1}.g7 .mbr{position:absolute;right:12px;bottom:10px}.g7 .mb2{background:rgba(255,255,255,.12);color:var(--gold-l);border-color:var(--gold)}
+.mcur{position:absolute;left:0;top:0;width:18px;height:18px;z-index:9;pointer-events:none;opacity:0;transition:transform .7s cubic-bezier(.4,0,.2,1),opacity .3s;background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 2l15 9-7 1.5L9 20z' fill='white' stroke='black' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;filter:drop-shadow(0 2px 3px rgba(0,0,0,.5))}.mcur.on{opacity:1}
+.mcur.clk:after{content:"";position:absolute;left:-6px;top:-6px;width:12px;height:12px;border-radius:50%;border:2px solid #fff;animation:hring .45s ease-out}@keyframes hring{from{transform:scale(.4);opacity:1}to{transform:scale(2.4);opacity:0}}
+@media(prefers-reduced-motion:reduce){.hst,.mup{animation:none}}
+body.st .gbar{position:absolute;top:44px;right:18px;display:flex;align-items:stretch;gap:10px}body.st .gbar .gset{position:static;min-width:112px;box-sizing:border-box}body.st .gbar .gset.hlp{justify-content:center;align-items:center}
+.hid.show{opacity:1!important}
+
+body.st .evblk{max-width:960px;margin:14px auto 0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;text-align:left;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+body.st .evrow{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:15px;color:var(--mut)}body.st .evrow b{color:var(--ink);font-size:16px}body.st .evbt{display:flex;gap:8px}body.st .evbt .sm{font-size:12px;padding:4px 12px}
+body.st .evnote{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-size:11.5px;line-height:1.6;color:var(--mut);opacity:.85;display:flex;gap:6px}body.st .evnote i{font-style:normal;flex:none;color:var(--red)}
+.fl{display:contents}.fl small{display:none}
+body.st .wr.lkb{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hold{position:relative;overflow:hidden;font-weight:700;font-size:14px;padding:7px 20px;border-radius:10px;border:1.5px solid #d62828;background:transparent;color:#d62828;transition:transform .2s;user-select:none;-webkit-user-select:none;touch-action:none;-webkit-touch-callout:none;cursor:pointer}
+.hold .hf{position:absolute;inset:0;background:#d62828;transform:scaleX(0);transform-origin:left;transition:transform .22s ease-out;pointer-events:none}
+.hold span{position:relative;transition:color .22s}
+.hold.holding{transform:scale(.95)}.hold.holding .hf{transform:scaleX(1);transition:transform 1.2s linear}.hold.holding span{color:#fff;transition:color 1.2s cubic-bezier(.8,0,1,1)}
+.hold.done{transform:none;animation:holdb .45s ease}.hold.done .hf{transform:scaleX(1);transition:none}.hold.done span{color:#fff}
+@keyframes holdb{0%{transform:scale(.95)}45%{transform:scale(1.1)}100%{transform:scale(1)}}
+@media(max-width:760px){
+ body.st .gbar{position:static;justify-content:flex-end;margin:0 0 6px;padding-right:2px}
+ body.st .sh0{padding-top:14px}body.st .sh0 h1{font-size:24px}
+ body.st .evblk{margin:10px 12px 0}
+ .pr{gap:10px 10px}.fl{display:flex;flex-direction:column;gap:3px;min-width:0}.fl small{display:block;font-size:11px;color:var(--mut)}
+ .fl input{width:100%;box-sizing:border-box}
+ body.st .wr.lkb{flex-direction:column;align-items:stretch;text-align:left}.hold{align-self:flex-end}
+ .helpw{padding:20px 14px}.hsc{height:200px}
+}
+body.st .hold,body.st .hold:hover:not(:disabled){background:transparent!important;color:#d62828!important;border:1.5px solid #d62828!important;box-shadow:none!important;font:700 14px "Noto Sans TC",system-ui,sans-serif;padding:7px 20px;border-radius:10px;filter:none}
+body.st .hold.holding span,body.st .hold.done span{color:#fff!important}
+.helpw .hsc{--bg:#b0102a;--bg2:#74091b;--gold:#f2c14e;--gold-l:#ffe6a6;--red:#c8102e;--red-d:#8f0b20;--title:#ffe6a6}
+.hzn{width:38px;height:38px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:0}.hzn svg{display:block}
+body.st .hzn{border:1px solid var(--line);background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}body.st .hzn:disabled{opacity:.3}
+body.st .hx2{border:0;background:none;box-shadow:none;padding:4px 8px;color:var(--mut)}body.st .hx2:hover:not(:disabled){background:none;color:var(--ink)}
 </style></head><body><div id="app"></div><div id="run"></div><div id="modal"></div><div id="toast"></div><canvas id="fx"></canvas><script>
 const $=s=>document.querySelector(s),sl=ms=>new Promise(r=>setTimeout(r,ms)),CN='一二三四五六七八九十',LS='wy-lot1',DK='wy-lot-design';
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -315,10 +361,11 @@ if(C.mode==='csv')return C.roster.map((_,i)=>''+i);
 if(C.mode==='table'){for(let t=1;t<=C.tables;t++)for(let s=1;s<=C.seats;s++)if(!E.some(e=>{const m=e.match(/^(\d+)(?:-(\d+))?$/),r=e.match(/^(\d+)~(\d+)$/);return r?t>=Math.min(+r[1],+r[2])&&t<=Math.max(+r[1],+r[2]):m&&+m[1]===t&&(m[2]==null||+m[2]===s)}))a.push(t+'-'+s)}
 else for(let n=1;n<=C.total;n++)if(!E.some(e=>{const m=e.match(/^(\d+)(?:[~-](\d+))?$/);return m&&(m[2]==null?+m[1]===n:n>=Math.min(+m[1],+m[2])&&n<=Math.max(+m[1],+m[2]))}))a.push(''+n);return a}
 const seats=()=>Array.from({length:C.seats},(_,i)=>i+1);
-function build(){fix();let tot=0,k=0;const man=ST.some(s=>s.prizes.some(p=>p.no.trim()));ST.forEach(s=>s.prizes.forEach(p=>{if(!p.no.trim())tot++}));const plan=[];
+function mkPlan(){fix();let tot=0,k=0;const man=ST.some(s=>s.prizes.some(p=>p.no.trim()));ST.forEach(s=>s.prizes.forEach(p=>{if(!p.no.trim())tot++}));const plan=[];
 ST.forEach((s,si)=>s.prizes.forEach((p,j)=>{let no=p.no.trim();if(!no&&(man||!C.an))no='';else if(!no){k++;no='第'+(man||C.ord==='asc'?k:tot-k+1)+'獎'}
 plan.push({si,od:j+1,sn:s.name,cat:s.cat,gm:s.mode,no,pn:p.name.trim()||s.cat,gift:p.gift.trim(),per:p.per,pm:s.pm,got:[],void:0,abs:[],N:0,ok:false,done:false})}));
-S={plan,cur:0,pool:full(),seat:seats(),res:[],bn:0,segG:false,segT:false,st:{}};MSG=null;save()}
+return plan}
+function build(){const plan=mkPlan();S={plan,cur:0,pool:full(),seat:seats(),res:[],bn:0,segG:false,segT:false,st:{}};MSG=null;save()}
 function wr(){const a=[];let g=0,t=0;ST.forEach(s=>{if(s.mode==='table'){if(g)a.push('注意：先「一般抽法」再「桌獎抽法」，可能導致部分桌獎得獎者重複得獎！');t=1}else{if(t&&C.auto&&!C.rep&&C.mode==='table')a.push('注意：先「桌獎抽法」再「一般抽法」，部分桌獎得獎座位號後續不再得獎！');g=1}});return[...new Set(a)]}
 function chk(){const a=[];if(C.mode==='csv'&&!C.roster.length)a.push('尚未匯入名單 CSV（欄位：單位、大名）');let g=0,t=0;ST.forEach(s=>s.prizes.forEach(p=>{if(s.mode==='table')t+=p.per;else g+=p.per}));const z=full().length;
 if(!C.rep&&g>z)a.push(`一般抽法共需抽出 ${g} 位，但有效名單只有 ${z} 位`);if(t>C.seats)a.push(`桌獎抽法共需抽出 ${t} 個座位號，但每桌只有 ${C.seats} 個`);return a}
@@ -365,8 +412,13 @@ return `<div class="vs">共 ${ST.length} 個階段、${np} 個獎項，合計抽
 function tv(k,b){VO[k]=!VO[k];const e=$('#p'+k);e.hidden=!VO[k];if(VO[k])e.innerHTML=k==='R'?vR():vP();b.textContent=VO[k]?'關閉檢視':(k==='R'?'檢視名單':'檢視獎項')}
 const rv=()=>['R','P'].forEach(k=>{const e=$('#p'+k);if(e&&VO[k]&&!e.hidden)e.innerHTML=k==='R'?vR():vP()});
 /* 設定頁 */
+
+function holdInit(){const b=$('#ulb');if(!b)return;let t=0;const sp=b.querySelector('span'),fin=()=>{b.classList.remove('holding');b.classList.add('done');sp.textContent='已解鎖 ✓';setTimeout(()=>{UL=true;SNAP=JSON.stringify({C,ST});setView()},650)},
+st=()=>{if(b.classList.contains('done'))return;b.classList.add('holding');clearTimeout(t);t=setTimeout(fin,1200)},cn=()=>{if(b.classList.contains('done'))return;clearTimeout(t);b.classList.remove('holding')};
+b.onpointerdown=e=>{e.preventDefault();st()};b.onpointerup=b.onpointerleave=b.onpointercancel=cn;b.oncontextmenu=e=>e.preventDefault();
+b.onkeydown=e=>{if((e.key===' '||e.key==='Enter')&&!e.repeat){e.preventDefault();st()}};b.onkeyup=cn;b.onblur=cn}
 function setView(){fix();const MAN=ST.some(s=>s.prizes.some(p=>p.no.trim()));const T=C.mode==='table',bd=exBad(),LK=!!S&&S.res.length>0&&!UL;const nm={};ST.forEach(s=>s.prizes.forEach(p=>{const k=p.no.trim();if(k)nm[k]=(nm[k]||0)+1}));const dn=Object.values(nm).filter(v=>v>1).reduce((a,b)=>a+b,0),w=[...(dn?[`注意：有${dn}個獎項編號重複登錄，請再次確認獎項填入是否無誤！`]:[]),...(C.rep?['注意：「允許重複得獎」功能已開啟！已得獎者後續獎項有可能會重複抽出！']:[]),...(bd.length?['排除選項無法辨識，已被忽略：'+esc(bd.join('、'))]:[]),...chk(),...wr()];
-$('#app').innerHTML=`<div class="sh0"><button class="gset" id="gs" onclick="gClick()">${gChipH()}</button><button class="bk" onclick="V='home';render()">← 回首頁</button><h1>活動設定</h1><div class="evbar">目前活動：<b>${esc(evInfo(IDX.act).name)}</b><button class="sm" onclick="evRen(IDX.act)">重新命名</button><button class="sm" onclick="evList()">切換活動</button><button class="sm" onclick="helpOpen(0)">使用說明</button></div><p>設定會自動記憶在此瀏覽器，建議連結Google登入同步進度，設定完成後可匯出設定，以避免不同瀏覽器切換遺失資料！</p></div><div class="wrap">${S&&S.res.length?(UL?'<div class="wr">⚠ 已解鎖修改：變更不會影響目前進度，需按「套用設定並重新開始」才會生效（會清空抽獎結果）；若按「繼續抽獎」則放棄這些修改。</div>':'<div class="wr">目前已有抽獎進度，名單與獎項設定已鎖定，避免與進度不一致。 <button onclick="UL=true;SNAP=JSON.stringify({C,ST});setView()">解鎖修改</button></div>'):''}
+$('#app').innerHTML=`<div class="sh0"><div class="gbar"><button class="gset hlp" onclick="helpOpen(0)">使用說明</button><button class="gset" id="gs" onclick="gClick()">${gChipH()}</button></div><button class="bk" onclick="V='home';render()">← 回首頁</button><h1>抽獎活動設定</h1><div class="evblk"><div class="evrow"><span>目前活動：<b>${esc(evInfo(IDX.act).name)}</b></span><span class="evbt"><button class="sm" onclick="evRen(IDX.act)">重新命名</button><button class="sm" onclick="evList()">切換活動</button></span></div><div class="evnote"><i>ⓘ</i>設定會自動記憶在此瀏覽器，建議連結Google登入同步進度，設定完成後可匯出設定，以避免不同瀏覽器切換遺失資料！</div></div></div><div class="wrap">${S&&S.res.length?(UL?'<div class="wr">⚠ 已解鎖修改：變更不會影響目前進度，需按「套用設定並重新開始」才會生效（會清空抽獎結果）；若按「繼續抽獎」則放棄這些修改。</div>':'<div class="wr lkb"><span>⚠注意：目前已有抽獎進度，名單與獎項設定已鎖定，避免與進度不一致。</span><button class="hold" id="ulb" title="長按約 1.2 秒解鎖"><i class="hf"></i><span>解鎖修改</span></button></div>'):''}
 <div class="card lk"><h2>抽獎名單</h2><div class="g"><label>名單模式${SE('C.mode',[['table','抽多少桌'],['num','抽多少人'],['csv','匯入csv檔']],C.mode,'data-r=1')}</label>
 ${T?`<label>桌數${I('C.tables',C.tables,'number','min=1 max=150')}</label><label>每桌人數${I('C.seats',C.seats,'number','min=1 max=12')}</label>`:C.mode==='csv'?`<label>名單檔案<span class="fl"><button class="sm" onclick="impR()">匯入csv檔</button><em>${C.roster.length?'已匯入 '+C.roster.length+' 位':'尚未匯入'}</em></span></label>`:`<label>總人數${I('C.total',C.total,'number','min=1 max=1500')}</label>`}</div>
 ${C.mode==='csv'?'<div class="wr">⚠ 提醒：此模式抽獎模式僅能使用「一般抽法」，不適用「桌獎抽法」，CSV檔案標題須包含「單位」「大名」，每次抽出一組「單位＋大名」；此模式沒有排除選項。</div>':`<label>排除選項（以逗號分隔）<textarea data-k="C.excl" rows="2" placeholder="${T?'例：3-5（3桌5號）、7（整個7桌）、8~10（8至10桌）':'例：13、20~25（或 20-25）'}">${esc(C.excl)}</textarea></label>`}
@@ -381,7 +433,7 @@ ${ST.map((s,i)=>`<div class="sub"><div class="sh">${I(`ST.${i}.name`,s.name,'tex
 <label>抽獎動畫（過場）<select disabled><option>數字轉動（預設）</option></select></label></div>
 ${s.prizes.some(q=>q.per>1)?'<div class="wr">⚠ 提醒：抽選複數時可選擇（預設為一次全部抽）<br>一次全部抽＝僅按一次，全部抽完；依序分次抽＝每按一次，抽出一位。</div>':''}
 <div class="pr ph"><span>順序</span><span>獎項編號</span><span>獎項名稱/提供者</span><span>獎品名稱</span><span>每次抽出</span><span></span></div>
-${s.prizes.map((p,j)=>{const b=`ST.${i}.prizes.${j}.`;return`<div class="pr"><span class="mv"><b>#${j+1}</b><button class="mb" title="上移" ${j?'':'disabled'} onclick="act('pu',${i},${j})">↑</button><button class="mb" title="下移" ${j<s.prizes.length-1?'':'disabled'} onclick="act('pd',${i},${j})">↓</button></span>${I(b+'no',p.no,'text',`maxlength=4 data-r=1 placeholder="${MAN?'請輸入編號':'自動編號'}"`)}${I(b+'name',p.name,'text',`maxlength=20 placeholder="${s.cat}"`)}${I(b+'gift',p.gift,'text','maxlength=10 placeholder="請輸入獎品名稱"')}${I(b+'per',p.per,'number','min=1 max=10 data-r=1 placeholder="1～10"')}<span class="ops"><button class="mb ad" title="在這個獎項後面新增一個獎項" ${s.prizes.length<50?'':'disabled'} onclick="act('padd',${i},${j})">＋</button><button class="mb dl" title="刪除這個獎項" ${s.prizes.length>1?'':'disabled'} onclick="act('pdel',${i},${j})">×</button></span></div>`}).join('')}</div>`).join('')}
+${s.prizes.map((p,j)=>{const b=`ST.${i}.prizes.${j}.`;return`<div class="pr"><span class="mv"><b>#${j+1}</b><button class="mb" title="上移" ${j?'':'disabled'} onclick="act('pu',${i},${j})">↑</button><button class="mb" title="下移" ${j<s.prizes.length-1?'':'disabled'} onclick="act('pd',${i},${j})">↓</button></span><label class="fl"><small>獎項編號</small>${I(b+'no',p.no,'text',`maxlength=4 data-r=1 placeholder="${MAN?'請輸入編號':'自動編號'}"`)}</label><label class="fl"><small>獎項名稱/提供者</small>${I(b+'name',p.name,'text',`maxlength=20 placeholder="${s.cat}"`)}</label><label class="fl"><small>獎品名稱</small>${I(b+'gift',p.gift,'text','maxlength=10 placeholder="請輸入獎品名稱"')}</label><label class="fl"><small>每次抽出</small>${I(b+'per',p.per,'number','min=1 max=10 data-r=1 placeholder="1～10"')}</label><span class="ops"><button class="mb ad" title="在這個獎項後面新增一個獎項" ${s.prizes.length<50?'':'disabled'} onclick="act('padd',${i},${j})">＋</button><button class="mb dl" title="刪除這個獎項" ${s.prizes.length>1?'':'disabled'} onclick="act('pdel',${i},${j})">×</button></span></div>`}).join('')}</div>`).join('')}
 ${ST.length<10?'<div style="text-align:right"><button class="lk" onclick="act(\'add\')">＋ 新增階段</button></div>':''}
 <div class="ar gs" style="margin-top:12px"><label class="ck" style="min-width:0">${CK('C.an',C.an&&!MAN,'data-r=1'+(MAN?' disabled':''))} 自動編號順序</label>${SE('C.ord',[['asc','順序'],['desc','倒序']],C.ord,LK||MAN||!C.an?'disabled':'')}<label class="ck" style="min-width:0;margin-left:18px">${CK('C.prov',C.prov)} 獎品來自提供者</label><span style="flex:1;min-width:300px;min-height:34px;display:flex;align-items:center">${MAN?'<span class="wr" style="margin:0">⚠ 提醒：目前已自行獎項編號，無法自動編號。</span>':''}</span></div>
 <div class="vb"><button class="sm nv" onclick="tv('P',this)">${VO.P?'關閉檢視':'檢視獎項'}</button></div><div class="vp" id="pP" ${VO.P?'':'hidden'}>${VO.P?vP():''}</div></div>
@@ -390,7 +442,7 @@ ${ST.length<10?'<div style="text-align:right"><button class="lk" onclick="act(\'
 ${T&&ST.length>=2&&ST[0].mode==='table'&&ST[1].mode==='gen'?`<label class="ck">${CK('C.auto',C.auto&&!C.rep,C.rep?'data-r=1 disabled title="已開啟「允許重複得獎」，此選項無法使用"':'data-r=1')} 已抽出座位號後續不再得獎</label>`:''}</div>
 ${w.map(x=>`<div class="wr">⚠ ${x}</div>`).join('')}
 <div class="rw"><button class="sm lg" onclick="im1()">匯入設定</button><button class="sm lg" onclick="ex1()">匯出設定</button><button class="sm lg dng" onclick="clr()" ${S&&S.res.length?'disabled title="已開始抽獎，無法清除設定"':''}>清除所有設定</button><button class="sm lg" onclick="dsT()">樣式設定</button><button class="sm lg" onclick="prev()" title="彩排模式：僅預覽執行畫面，結束後不記錄中獎名單">彩排預覽</button></div>
-<div class="rw">${S?'<button class="b p" onclick="rst()">套用修改並重新開始</button>':''}<button class="b p" onclick="st0()">${S?'不修改繼續抽獎':'開始執行抽獎'}</button></div><div class="lts" id="lts">${ltsT()}</div></div>`;if(LK)document.querySelectorAll('#app .lk input,#app .lk select,#app .lk textarea,#app .lk button:not(.nv),#app button.lk').forEach(e=>e.disabled=true)}
+<div class="rw">${S?'<button class="b p" onclick="rst()">套用修改並重新開始</button><button class="b p" onclick="stApply()" '+(UL?'':'disabled title="請先按「解鎖修改」"')+'>套用修改並繼續抽獎</button>':''}<button class="b p" onclick="st0()">${S?'不修改繼續抽獎':'開始執行抽獎'}</button></div><div class="lts" id="lts">${ltsT()}</div></div>`;if(LK)document.querySelectorAll('#app .lk input,#app .lk select,#app .lk textarea,#app .lk button:not(.nv),#app button.lk').forEach(e=>e.disabled=true);holdInit()}
 function act(a,i,j){const y=window.scrollY;
 if(a==='padd'){const P=ST[i]&&ST[i].prizes;if(!P||P.length>=50)return;P.splice(j+1,0,{no:'',name:'',gift:'',per:1});ST[i].count=P.length}
 else if(a==='pdel'){const P=ST[i]&&ST[i].prizes;if(!P||P.length<=1)return;P.splice(j,1);ST[i].count=P.length}
@@ -402,6 +454,17 @@ if(!a&&!b&&!c)return false;const L=[a?'獎項編號':'',b?'獎項名稱/提供�
 return new Promise(r=>{M(`<div class="pop s"><h2>提醒</h2><p style="text-align:left;line-height:1.8">尚有空白欄位：${L}。<br>您可以點選「檢視獎項」進行檢查，所有欄位是否都已完成登錄。</p><p style="font-weight:700;color:var(--red)">⚠ 空白的欄位不會被自動填入 ⚠</p><div class="rw"><button id="ay" class="b p">回去修改</button><button id="an" class="b p alt">仍要開始</button></div></div>`);$('#ay').onclick=()=>{M();r(true)};$('#an').onclick=()=>{M();r(false)}})}
 async function st0(){if(C.mode==='csv'&&!C.roster.length)return toast('請先匯入名單 CSV（欄位：單位、大名）');if(S&&S.res.length&&UL){if(!await ask('有尚未套用的設定修改。繼續抽獎會放棄這些修改，沿用目前進度，是否繼續？'))return;try{const o=JSON.parse(SNAP);['mode','tables','seats','total','excl','ord','roster'].forEach(k=>C[k]=o.C[k]);ST=o.ST;save()}catch(e){}}UL=false;if(!S||!S.res.length){fix();if(await blk())return;build()}V='run';render()}
 async function clr(){if(S&&S.res.length)return;if(!await ask('確定要清除所有設定（含樣式）並恢復預設值嗎？'))return;if(!await ask('再次確認：此動作無法復原，是否繼續？'))return;C={...DC};ST=[mk()];S=null;UL=false;D={t:{},c:{},g:{lan:1,sheep:1},th:'red'};fix();const o=$('#ds');if(o)o.remove();dBuild();save();V='set';render();toast('已清除設定（含樣式）')}
+
+const pDrawn=o=>o.si>=0&&(o.done||o.got.length>0||o.abs.length>0||o.void>0||S.res.some(x=>x.sn===o.sn&&x.no===o.no&&x.pn===o.pn));
+async function stApply(){if(!S||!UL)return;if(C.mode==='csv'&&!C.roster.length)return toast('請先匯入名單 CSV（欄位：單位、大名）');if(await blk())return;
+let o;try{o=JSON.parse(SNAP)}catch(e){return toast('找不到修改前的資料，請改用「套用修改並重新開始」')}
+const gk=['mode','tables','seats','total','excl','ord','roster'],bad=[],gbad=gk.filter(k=>JSON.stringify(C[k])!==JSON.stringify(o.C[k]));
+const stg=s=>s?JSON.stringify({n:s.name,c:s.cat,m:s.mode,p:s.pm}):'',prz=p=>p?JSON.stringify(p):'';
+const dr=S.plan.filter(pDrawn);dr.forEach(q=>{const os=o.ST[q.si],ns=ST[q.si];if(stg(os)!==stg(ns)||prz(os&&os.prizes[q.od-1])!==prz(ns&&ns.prizes[q.od-1]))bad.push(q)});
+if(bad.length||gbad.length){const names=[...new Set(bad.map(q=>q.no+(q.pn?' '+q.pn:'')))];if(!await ask(`⚠ 提醒：已抽過的獎項不能修改。<br>${names.length?'被修改的已抽獎項：'+esc(names.join('、'))+'<br>':''}${gbad.length?'名單設定已有抽獎進度，無法修改。<br>':''}是否放棄這些修改，只套用尚未抽到的獎項？`,'放棄這些修改並套用','返回修改'))return;
+gbad.forEach(k=>C[k]=o.C[k]);const NS=JSON.parse(JSON.stringify(ST));bad.forEach(q=>{const os=o.ST[q.si];if(!NS[q.si])NS[q.si]=JSON.parse(JSON.stringify(os));else{Object.assign(NS[q.si],{name:os.name,cat:os.cat,mode:os.mode,pm:os.pm});NS[q.si].prizes[q.od-1]=JSON.parse(JSON.stringify(os.prizes[q.od-1]))}});ST=NS;fix()}
+const old=S.plan,cu=old[S.cur],np=mkPlan().map(e=>{const k=old.find(q=>q.si===e.si&&q.od===e.od&&q.si>=0);return k&&(pDrawn(k)||k.ok)?k:e});old.filter(q=>q.si<0).forEach(q=>np.push(q));
+S.plan=np;let ci=cu?np.indexOf(cu):-1;if(ci<0||np[ci].done)ci=np.findIndex(x=>!x.done);S.cur=ci;UL=false;MSG=null;save();V='run';render();toast('已套用修改，繼續抽獎')}
 async function rst(){if(await blk())return;if(C.mode==='csv'&&!C.roster.length)return toast('請先匯入名單 CSV（欄位：單位、大名）');if(await ask('套用設定並重新開始，目前抽獎結果將被清空，是否繼續？')){UL=false;build();V='run';render()}}
 
 /* 首頁眉標：拉霸輪播 */
@@ -415,21 +478,54 @@ const dur=1000+i*130;st.animate([{transform:'translateY(0)'},{transform:`transla
 prev=t;HT=setTimeout(go,4000)};go()}
 
 
-/* 使用說明 */
-const HS=[['建立與切換活動','點首頁「目前活動」可新增、複製、重新命名或切換活動（最多 3 個），每個活動各自保存設定、樣式與抽獎進度。','<div class="hs1"><div class="hc">我的活動</div><div class="hc b2">新活動2</div><div class="hbtn">新增活動</div></div>'],
-['設定名單與獎項','按「開始新活動」進入設定：選擇名單模式（抽桌／抽號／匯入 CSV），設定獎項、人數與抽出方式，也可匯入 CSV 獎項。','<div class="hs2"><div class="hr">桌數　100</div><div class="hr">每桌人數　10</div><div class="hr">第 1 獎　禮品獎　3 位</div></div>'],
-['開始執行抽獎','設定完成按「開始執行抽獎」。想先看效果可用「彩排預覽」，彩排不會記錄中獎名單。','<div class="hs3"><div class="hbtn">開始執行抽獎</div><div class="hsm">彩排預覽</div></div>'],
-['抽出得獎者','選好獎項與人數後按「開始抽獎」，號碼轉動後依序停下。得獎者可勾選是否到場，不在場者依設定略過或重抽。','<div class="hs4"><div class="rl"><i>3</i><i>7</i><i>1</i><i>8</i><i>5</i></div><div class="rl d2"><i>9</i><i>2</i><i>6</i><i>4</i><i>7</i></div><div class="rl d3"><i>1</i><i>5</i><i>8</i><i>3</i><i>2</i></div></div>'],
-['中獎名單與匯出','隨時可開啟「中獎名單」查看，並匯出成 CSV、PDF 或圖片。','<div class="hs5"><div class="hr">第 1 獎　禮品獎　3 桌 5 號</div><div class="hr">第 1 獎　禮品獎　8 桌 2 號</div><div class="hr">第 2 獎　大獎　1 桌 9 號</div><div class="hx"><span>CSV</span><span>PDF</span><span>圖片</span></div></div>'],
-['Google 登入備份','登入 Google 後，設定與進度會同步到你雲端硬碟的專屬空間，換電腦或瀏覽器也能接著用。也可用「匯出設定」另外備份。','<div class="hs6"><div class="cl">☁</div><div class="ar">↑</div><div class="pc">▭</div></div>']];
-let HP=0,HTm=0;
-function helpOpen(i){HP=((i==null?HP:i)+HS.length)%HS.length;const s=HS[HP];clearTimeout(HTm);
-M(`<div class="pop s helpw"><h2>使用說明</h2><div class="hst" key="${HP}"><div class="hsc">${s[2]}</div><h3>${HP+1}. ${s[0]}</h3><p>${s[1]}</p></div><div class="hdots">${HS.map((_,k)=>`<i class="${k===HP?'on':''}" onclick="helpOpen(${k})"></i>`).join('')}</div><div class="rw"><button class="b p alt" onclick="helpOpen(HP-1)">上一步</button><button class="b p alt" onclick="helpOpen(HP+1)">下一步</button><button class="b p alt" onclick="clearTimeout(HTm);M()">關閉</button></div></div>`);
-HTm=setTimeout(()=>{if(document.querySelector('.helpw'))helpOpen(HP+1)},6000)}
+/* 使用說明（模擬實際操作的動畫） */
+const HS=[
+['建立與切換活動','點選活動可新增、複製、重新命名或切換活動，每個活動各自保存設定、樣式與抽獎進度。',
+`<div class="mh"><div class="mh-e">下一個幸運兒就是你！</div><div class="mh-t">幸運抽獎器</div><div class="mh-pill" id="a1">目前活動：<b>我的活動</b>　切換 ▾</div></div><div class="mdlg hid" id="d1"><b>我的活動</b><div class="mrow" id="r1"><span>我的活動<em id="e1">使用中</em></span><span class="mbs"><u>重新命名</u><u id="cp">複製</u><u>刪除</u></span></div><div class="mrow hidd" id="r3"><span>我的活動 副本</span><span class="mbs"><u>開啟</u><u>重新命名</u><u>複製</u><u>刪除</u></span></div><div class="mrow" id="r2"><span>新活動2<em class="hid" id="e2">使用中</em></span><span class="mbs"><u id="op">開啟</u><u>重新命名</u><u>複製</u><u>刪除</u></span></div><div class="mnew">新增活動</div></div>`,
+[[400,'m','#a1'],[1000,'c','#a1'],[1100,'s','#d1','show'],[1900,'m','#cp'],[2400,'c','#cp'],[2600,'u','#r3','hidd'],[3500,'m','#op'],[4000,'c','#op'],[4150,'s','#e2','show'],[4150,'s','#e1','hid']]],
+['設定「抽獎名單」','進入活動設定，可選擇名單模式（桌數／人數／自行匯入），設定排除選項，並可檢視抽獎池名單。',
+`<div class="hzc"><b class="mct">抽獎名單</b><div class="mf"><label>名單模式<div class="msel" id="sl">抽多少桌</div></label><label>桌數<div class="mi">100</div></label><label>每桌人數<div class="mi">10</div></label></div><label class="mfw">排除選項（以逗號分隔）<div class="mi" id="ex"></div></label><div class="mbr"><span class="mb2" id="vw">檢視名單</span></div></div><div class="mdlg hid" id="pl"><b>抽獎池名單</b><div class="hzchips"><i class="x">1桌</i><i class="x">2桌</i><i>3桌</i><i>4桌</i><i>5桌</i><i class="x">6桌</i><i>7桌</i><i>8桌</i><i>9桌</i><i>10桌</i><i>…</i></div></div>`,
+[[300,'m','#sl'],[700,'c','#sl'],[800,'t','#sl','抽多少人'],[1300,'t','#sl','匯入csv檔'],[1800,'t','#sl','抽多少桌'],[2200,'m','#ex'],[2500,'type','#ex','1-2, 6'],[3600,'m','#vw'],[4100,'c','#vw'],[4200,'s','#pl','show']]],
+['設定「獎品清單」','為每個階段、順序、獎項編號、獎項名稱／提供者、獎品名稱進行設定，並可設定抽出人數與方式。',
+`<div class="hzc"><div class="mt"><div class="mth"><span>階段</span><span>順序</span><span>獎項編號</span><span>獎項名稱/提供者</span><span>獎品名稱</span><span>每次抽出</span></div><div class="mtr"><span class="mi" id="c1"></span><span class="mi" id="c2"></span><span class="mi" id="c3"></span><span class="mi" id="c4"></span><span class="mi" id="c5"></span><span class="mi" id="c6"></span></div><div class="mtr"><span class="mi" id="d1x"></span><span class="mi" id="d2x"></span><span class="mi" id="d3x"></span><span class="mi" id="d4x"></span><span class="mi" id="d5x"></span><span class="mi" id="d6x"></span></div></div><div class="mf" style="margin-top:8px"><label>複數抽出方式<div class="msel" id="pm">一次全部抽</div></label></div></div>`,
+[[200,'m','#c1'],[400,'type','#c1','尾牙'],[800,'type','#c2','1'],[1000,'type','#c3','第1獎'],[1300,'m','#c4'],[1400,'type','#c4','財務部'],[1900,'type','#c5','電視機'],[2300,'type','#c6','1'],[2800,'type','#d1x','尾牙'],[3000,'type','#d2x','2'],[3200,'type','#d3x','第2獎'],[3500,'type','#d4x','人資部'],[3900,'type','#d5x','咖啡機'],[4300,'type','#d6x','3'],[4600,'m','#pm'],[4900,'c','#pm'],[5000,'t','#pm','依序分次抽']]],
+['開始執行抽獎活動','設定完成後，按「開始執行抽獎」。想先看效果可用「彩排預覽」，彩排不會記錄中獎名單。',
+`<div class="hzc"><b class="mct">獎項設定</b><div class="mt"><div class="mtr"><span class="mi">尾牙</span><span class="mi">1</span><span class="mi">第1獎</span><span class="mi">財務部</span></div></div><div class="mbr" style="margin-top:20px"><span class="mb2" id="pv">彩排預覽</span><span class="mb3" id="st">開始執行抽獎</span></div></div><div class="mrun hid" id="rn"><div class="mpv hid" id="pb">⚠彩排模式：僅預覽執行畫面，不記錄中獎名單！</div><div class="mh-t sm">幸運抽獎</div><div class="mpan"><span>桌次</span><span>號次</span></div><div class="mbr"><span class="mb3" id="gb">開始抽獎</span></div></div>`,
+[[300,'m','#pv'],[800,'c','#pv'],[900,'s','#rn','show'],[900,'s','#pb','show'],[2300,'u','#rn','show'],[2300,'u','#pb','show'],[2800,'m','#st'],[3300,'c','#st'],[3400,'s','#rn','show']]],
+['抽出幸運得獎者！','選好獎項與人數後按「開始抽獎」，號碼轉動後依序停下。得獎者可勾選是否到場，不在場者可略過或重抽。',
+`<div class="mrun on"><div class="mh-t sm">幸運抽獎</div><div class="mbar"><span>現在抽 <u>第1獎　禮品獎</u></span><span>抽幾位 <u>2</u></span><span class="mb3" id="gb">開始抽獎</span></div><div class="mpan"><span><b>桌次</b><em class="rl" id="t1">--</em></span><span><b>號次</b><em class="rl" id="t2">--</em></span></div></div><div class="mdlg hid" id="wn"><b>恭喜中獎</b><div class="mrow"><span>3 桌 7 號</span><label class="hzk on" id="k1">☑ 到場</label></div><div class="mrow" id="w2"><span>8 桌 2 號</span><label class="hzk on" id="k2">☑ 到場</label></div><small id="nt" class="hid">不在場：依設定略過或重抽</small></div>`,
+[[300,'m','#gb'],[800,'c','#gb'],[900,'spin'],[2200,'stop',['3','7']],[3200,'stop2',['3','7']],[3900,'s','#wn','show'],[4500,'m','#k2'],[5000,'c','#k2'],[5100,'s','#k2','off'],[5100,'t','#k2','☐ 不在場'],[5100,'s','#nt','show']]],
+['中獎名單與匯出','點選抽獎畫面右下角「中獎名單」隨時查看，並可匯出成 Excel（CSV）、PDF 或圖片，應用於各種情境。',
+`<div class="mrun on"><div class="mh-t sm">幸運抽獎</div><div class="mpan"><span><b>桌次</b><em>3</em></span><span><b>號次</b><em>7</em></span></div><span class="mls" id="lb">中獎名單</span></div><div class="mside hid" id="sd"><b>中獎名單</b><div class="mrow"><span>第1獎　3桌7號</span></div><div class="mrow"><span>第1獎　8桌2號</span></div><span class="mb2" id="eb">匯出中獎名單</span></div><div class="mdlg hid" id="xp"><b>匯出中獎名單</b><span class="mb2" id="x1">另存為Excel（csv）</span><span class="mb2" id="x2">另存為PDF文件</span><span class="mb2" id="x3">另存為圖片（PNG）</span></div>`,
+[[300,'m','#lb'],[800,'c','#lb'],[900,'s','#sd','show'],[1900,'m','#eb'],[2400,'c','#eb'],[2500,'s','#xp','show'],[3200,'m','#x1'],[3300,'s','#x1','hit'],[3900,'m','#x2'],[4000,'u','#x1','hit'],[4000,'s','#x2','hit'],[4600,'m','#x3'],[4700,'u','#x2','hit'],[4700,'s','#x3','hit']]],
+['特別提醒：Google登入備份','登入 Google 後，設定與進度會同步到你雲端硬碟的專屬空間，換電腦或瀏覽器也能接著用。也可用「匯出設定」另外備份。',
+`<div class="hzc g7"><div class="mgo" id="gc">Google 登入</div><div class="mcl">☁</div><div class="mup hid" id="up">↑</div><div class="mnote" id="gn">設定與進度 → 你的 Google 雲端硬碟專屬空間</div><div class="mbr"><span class="mb2" id="ex2">匯出設定</span></div></div>`,
+[[300,'m','#gc'],[900,'c','#gc'],[1000,'t','#gc','同步中…'],[1000,'s','#up','show'],[2400,'t','#gc','● 雲端已同步'],[2400,'s','#gc','ok'],[2400,'u','#up','show'],[2400,'s','#gn','show'],[3600,'m','#ex2'],[4200,'c','#ex2']]]];
+let HP=0,HTm=0,HTs=[],HF=false;
+function helpGo(i){HP=Math.max(0,Math.min(HS.length-1,i));helpOpen(HP,HF)}
+function helpOpen(i,first){HF=!!first;HP=((i==null?HP:i)+HS.length)%HS.length;const s=HS[HP],last=HP===HS.length-1;clearTimeout(HTm);HTs.forEach(clearTimeout);HTs=[];
+M(`<div class="pop helpw"><h2>使用說明</h2>${HF?'':'<button class="hx2" onclick="helpClose()">✕</button>'}<div class="hst" key="${HP}"><div class="hsc" id="hsc">${s[2]}<i class="mcur"></i></div><h3>${last?'':(HP+1)+'. '}${s[0]}</h3><p>${s[1]}</p></div><div class="hnav"><button class="hzn" onclick="helpGo(${HF?'HP-1':'HP-1+HS.length*0'})" ${HP===0&&HF?'disabled':''}><svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hdots">${HS.map((_,k)=>`<i class="${k===HP?'on':''}" onclick="helpGo(${k})"></i>`).join('')}</div><button class="hzn" onclick="helpGo(HP+1)" ${last&&HF?'disabled':''}><svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>${HF&&last?'<div class="rw"><button class="b p" onclick="helpDone()">我知道了，開始設定</button></div>':''}</div>`);
+helpRun(s[3]);HTm=setTimeout(()=>{if(!document.querySelector('.helpw'))return;if(HF&&last)return;helpOpen(HP+1,HF)},6000)}
+function helpClose(){clearTimeout(HTm);HTs.forEach(clearTimeout);M()}
+function helpDone(){try{localStorage.setItem('wy-help-seen','1')}catch(e){}helpClose();V='set';render()}
+function helpFirst(){let s=0;try{s=localStorage.getItem('wy-help-seen')}catch(e){}if(s){V='set';render()}else helpOpen(0,true)}
+function helpRun(steps){const st=$('#hsc');if(!st)return;const cu=st.querySelector('.mcur'),q=s=>st.querySelector(s),T=(t,f)=>HTs.push(setTimeout(()=>{if(document.body.contains(st))f()},t));let rl=null;
+steps.forEach(([t,a,s,x])=>{T(t,()=>{
+if(a==='m'){const e=q(s),sr=st.getBoundingClientRect(),er=e.getBoundingClientRect();cu.style.transform=`translate(${er.left-sr.left+er.width*.6}px,${er.top-sr.top+er.height*.55}px)`;cu.classList.add('on')}
+else if(a==='c'){cu.classList.remove('clk');void cu.offsetWidth;cu.classList.add('clk');q(s).classList.add('hit');setTimeout(()=>q(s)&&q(s).classList.remove('hit'),350)}
+else if(a==='s')q(s).classList.add(x)&&0;else if(a==='u')q(s).classList.remove(x);
+if(a==='s'){q(s).classList.add(x);if(x==='show'||x==='hid'){}}
+if(a==='u'&&x==='hidd')q(s).classList.remove('hidd');
+if(a==='t')q(s).textContent=x;
+else if(a==='type'){const e=q(s);e.textContent='';[...x].forEach((c,k)=>HTs.push(setTimeout(()=>{e.textContent+=c},k*110)))}
+else if(a==='spin'){const A=[q('#t1'),q('#t2')];rl=setInterval(()=>{if(!document.body.contains(st))return clearInterval(rl);A.forEach(e=>{if(!e.dataset.f)e.textContent=1+Math.floor(Math.random()*99)})},70);A.forEach(e=>e.classList.add('spin'))}
+else if(a==='stop'){const e=q('#t1');e.dataset.f=1;e.textContent=s[0]+'桌'.slice(0,0)+'';e.classList.remove('spin')}
+else if(a==='stop2'){const e=q('#t2');e.dataset.f=1;e.textContent=s[1];e.classList.remove('spin');clearInterval(rl)}
+})})}
 
 function homeView(){const dn=S?S.res.filter(r=>r.st==='得獎').length:0,ev=S&&S.cur<0;
 $('#app').innerHTML=`<div class="home"><button class="hm-help" onclick="helpOpen(0)">使用說明</button><div class="hm-in"><div class="hm-eye" id="hme"></div><h1 class="hm-t" style="--tn:5">幸運抽獎器</h1><div class="hm-ln"></div><button class="hm-evb" onclick="evList()">目前活動：<b>${esc(evInfo(IDX.act).name)}</b>　切換 ▾</button>
-<div class="hm-main">${S?`<button class="hm-b pri" onclick="st0()">繼續上次抽獎</button><div class="hm-info">已有 ${dn} 位得獎者　·　最後更新 ${fts(TS)}</div><div class="hm-two"><button class="hm-b hm-s" onclick="V='set';render()">查看修改設定</button><button class="hm-b hm-s" onclick="rs(1)">重新設定抽獎</button></div>`:`<button class="hm-b pri" onclick="V='set';render()">開始新活動</button>`}</div>
+<div class="hm-main">${S?`<button class="hm-b pri" onclick="st0()">繼續上次抽獎</button><div class="hm-info">已有 ${dn} 位得獎者　·　最後更新 ${fts(TS)}</div><div class="hm-two"><button class="hm-b hm-s" onclick="V='set';render()">查看修改設定</button><button class="hm-b hm-s" onclick="rs(1)">重新設定抽獎</button></div>`:`<button class="hm-b pri" onclick="helpFirst()">開始新活動</button>`}</div>
 </div>
 <div class="hm-ft" id="hmf">${ltsT()}</div><button class="hm-g" onclick="gClick()">${gChipH()}</button></div>`;heroStart()}
 function render(){if(V==='run'&&!S)V='set';dApply();const b=document.body.classList;b.toggle('rn',V==='run');b.toggle('st',V==='set');b.toggle('hm',V==='home');if(V==='run'){const d=$('#ds');d&&d.classList.remove('open')}V==='run'?runView():V==='home'?homeView():setView()}
@@ -484,7 +580,7 @@ if(cards){const m=$('#multi');m.className='multi on';m.innerHTML=ws.map((w,i)=>`
 await Promise.all([...m.querySelectorAll('.mc')].flatMap((c,i)=>[...c.querySelectorAll('span')].map((s,j)=>sp(s,c,tb&&j===0?mT:mS,fn(ws[i])[j],tb&&j===1?5000:4000))))}
 else{const f=fn(ws[0]);await Promise.all([...(tb?[sp($('#nT'),$('#rT'),mT,f[0],4000)]:[]),sp($('#nS'),$('#rS'),mS,f[tb?1:0],tb?5000:4000)])}
 await sl(1500)}
-function M(h){$('#modal').innerHTML=h?`<div class="ov">${h}</div>`:''}
+function M(h){if(h&&document.body.classList.contains('st'))h=h.replace(/⚠[^<]*/g,m=>`<span style="color:#d62828">${m}</span>`);$('#modal').innerHTML=h?`<div class="ov">${h}</div>`:''}
 function popup(p,ws){return new Promise(r=>{const tb=p.gm==='table';
 const nw=ws.length,cols=nw<=5?nw:Math.ceil(nw/2),cp=Math.min(nw,2);
 M(`<div class="pop w"><div class="gz">恭喜中獎</div><div class="tag"><b>${esc(p.no)}</b>${p.si<0?'':'　'+esc(p.pn)+((p.gift||'').trim()?(C.prov?'提供':'　')+esc(p.gift.trim()):'')}　共 ${ws.length} 位</div><div class="rows" style="--c:${cols};--cp:${cp}">${ws.map((w,i)=>`<label class="wrow${C.mode==='csv'?' cv':''}">${C.mode==='csv'?(r=>`<div class="un">${esc(r.u)}</div><b>${esc(r.n)}</b>`)(rost(w)):`<b>${lab(w)}</b>`}${tb?'':`${C.ab?`<span><input type="checkbox" checked data-a="${i}" onchange="const w=this.closest('.wrow');w.classList.toggle('no',!!w.querySelector('input:not(:checked)'))">到場</span>`:''}${C.vd?`<span><input type="checkbox" checked data-v="${i}" onchange="const w=this.closest('.wrow');w.classList.toggle('no',!!w.querySelector('input:not(:checked)'))">有效</span>`:''}`}</label>`).join('')}</div>${tb?'<p class="hn">桌獎：全場該座位號皆為得獎</p>':''}<button id="okb" class="big">領獎確認</button></div>`);
@@ -516,10 +612,10 @@ function ab(r){S.bn++;const n='加碼獎'+(S.bn>1?S.bn:'');S.plan.push({si:-1,od
 
 /* 中獎名單匯出：CSV / PDF / 圖片 */
 const wlRows=()=>srt(S.res).map(x=>[x.sn,odOf(x),x.no,x.pn,x.gift||'',x.w,x.st,x.t]);
-function wlEx(){M(`<div class="pop s" style="text-align:center"><h2>匯出中獎名單</h2><p style="font-size:16px;margin:4px 0 14px">請選擇匯出格式：</p><div class="rw"><button class="b p alt" style="min-width:260px" onclick="M();csv()">CSV（可用 Excel 開啟）</button></div><div class="rw"><button class="b p alt" style="min-width:260px" onclick="wlPdf()">存成 PDF</button></div><div class="rw"><button class="b p alt" style="min-width:260px" onclick="wlImg()">存成圖片（PNG）</button></div><div class="rw"><button class="b p alt" onclick="M()">取消</button></div></div>`)}
+function wlEx(){M(`<div class="pop s" style="text-align:center"><h2>匯出中獎名單</h2><p style="font-size:16px;margin:4px 0 14px">請選擇匯出格式：</p><div class="rw"><button class="b p alt" style="min-width:260px" onclick="M();csv()">另存為Excel（csv）</button></div><div class="rw"><button class="b p alt" style="min-width:260px" onclick="wlPdf()">另存為PDF文件</button></div><div class="rw"><button class="b p alt" style="min-width:260px" onclick="wlImg()">另存為圖片（PNG）</button></div><div class="rw"><button class="b p alt" onclick="M()">取消</button></div></div>`)}
 function wlDraw(rows,W,H,pg,np){const cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d'),cs=getComputedStyle(document.documentElement),col=(k,d)=>(cs.getPropertyValue(k)||'').trim()||d,hd=col('--red','#c8102e'),F='"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
 g.fillStyle='#fff';g.fillRect(0,0,W,H);const m=Math.round(W*.05),s=W/1000;
-g.fillStyle=hd;g.fillRect(0,0,W,Math.round(110*s));g.fillStyle='#fff';g.font=`700 ${Math.round(40*s)}px ${F}`;g.textBaseline='middle';g.fillText('中獎名單　'+evInfo(IDX.act).name,m,Math.round(55*s));
+g.fillStyle=hd;g.fillRect(0,0,W,Math.round(110*s));g.fillStyle='#fff';g.font=`700 ${Math.round(40*s)}px ${F}`;g.textBaseline='middle';g.fillText(evInfo(IDX.act).name+' 中獎名單',m,Math.round(55*s));
 g.font=`${Math.round(20*s)}px ${F}`;g.textAlign='right';g.fillText(new Date().toLocaleString('zh-TW',{hour12:false})+(np>1?`　第 ${pg}/${np} 頁`:''),W-m,Math.round(55*s));g.textAlign='left';
 const cols=[['階段',.11],['順序',.06],['獎項編號',.1],['獎項',.2],['獎品',.16],['得獎者',.16],['狀態',.08],['時間',.13]],tw=W-2*m;let x=m,xs=cols.map(c=>{const v=x;x+=tw*c[1];return v});
 const rh=Math.round(44*s);let y=Math.round(130*s);g.fillStyle='#f3f3f5';g.fillRect(m,y,tw,rh);g.fillStyle='#333';g.font=`700 ${Math.round(20*s)}px ${F}`;cols.forEach((c,i)=>g.fillText(c[0],xs[i]+8*s,y+rh/2));y+=rh;
